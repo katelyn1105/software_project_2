@@ -23,7 +23,7 @@ public class PDCProject2 {
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        frame.setTitle("K&K's Ergonomic Adventure!");
        frame.setResizable(true);
-       frame.setLocationRelativeTo(null);
+       frame.setLocationRelativeTo(null); // TESTTTT
        frame.setVisible(true);
         
        
