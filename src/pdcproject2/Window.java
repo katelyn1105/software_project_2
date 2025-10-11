@@ -19,6 +19,10 @@ public class Window extends JPanel{
     final int screenWidth = 480;
     final int screenHeight = 480;
     
+    // for the content on the tab that will switch out as we aren't doing multiple tables
+    private CardLayout cardLayout;
+    private JPanel contentPanel;
+    
     
     public Window(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
