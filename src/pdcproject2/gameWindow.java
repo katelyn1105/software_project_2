@@ -44,7 +44,7 @@ public class gameWindow extends javax.swing.JFrame {
         startButton = new javax.swing.JButton();
         highscoresButton = new javax.swing.JButton();
         lastRunButton = new javax.swing.JButton();
-        quitButton = new javax.swing.JButton();
+        quitButton1 = new pdcproject2.quitButton();
         startPanel = new javax.swing.JPanel();
         image2 = new javax.swing.JLabel();
         titleLabel3 = new javax.swing.JLabel();
@@ -53,6 +53,7 @@ public class gameWindow extends javax.swing.JFrame {
         nameLabel = new javax.swing.JLabel();
         enterNameBox = new javax.swing.JTextField();
         errorLabel = new javax.swing.JLabel();
+        quitButton2 = new pdcproject2.quitButton();
         stage1Panel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,32 +87,10 @@ public class gameWindow extends javax.swing.JFrame {
 
         lastRunButton.setText("Last run");
 
-        quitButton.setText("Quit");
-        quitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout initialPanelLayout = new javax.swing.GroupLayout(initialPanel);
         initialPanel.setLayout(initialPanelLayout);
         initialPanelLayout.setHorizontalGroup(
             initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(initialPanelLayout.createSequentialGroup()
-                .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(initialPanelLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(startButton)
-                        .addGap(32, 32, 32)
-                        .addComponent(highscoresButton)
-                        .addGap(38, 38, 38)
-                        .addComponent(lastRunButton)
-                        .addGap(31, 31, 31)
-                        .addComponent(quitButton))
-                    .addGroup(initialPanelLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(titleLabel1)))
-                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,6 +100,20 @@ public class gameWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialPanelLayout.createSequentialGroup()
                         .addComponent(titleLabel2)
                         .addGap(83, 83, 83))))
+            .addGroup(initialPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(titleLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(initialPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(startButton)
+                .addGap(32, 32, 32)
+                .addComponent(highscoresButton)
+                .addGap(38, 38, 38)
+                .addComponent(lastRunButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(quitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         initialPanelLayout.setVerticalGroup(
             initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,12 +124,12 @@ public class gameWindow extends javax.swing.JFrame {
                 .addComponent(titleLabel2)
                 .addGap(130, 130, 130)
                 .addComponent(image1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startButton)
                     .addComponent(highscoresButton)
                     .addComponent(lastRunButton)
-                    .addComponent(quitButton))
+                    .addComponent(quitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57))
         );
 
@@ -172,11 +165,6 @@ public class gameWindow extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
-                        .addComponent(enterNameBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(confirmButton1)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
@@ -189,7 +177,14 @@ public class gameWindow extends javax.swing.JFrame {
                         .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(errorLabel)
                             .addComponent(nameLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
+                        .addComponent(enterNameBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(confirmButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(quitButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         startPanelLayout.setVerticalGroup(
             startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,13 +195,14 @@ public class gameWindow extends javax.swing.JFrame {
                 .addComponent(title2Label1)
                 .addGap(130, 130, 130)
                 .addComponent(image2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(nameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmButton1)
-                    .addComponent(enterNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(enterNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quitButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(errorLabel)
                 .addGap(33, 33, 33))
         );
@@ -242,10 +238,6 @@ public class gameWindow extends javax.swing.JFrame {
             errorLabel.setText("Please enter your name to start"); // display this on the label below if the player does not enter anything as their name
         }
     }//GEN-LAST:event_confirmButton1ActionPerformed
-
-    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
-        System.exit(0); // when player clickes the exit button
-    }//GEN-LAST:event_quitButtonActionPerformed
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
@@ -288,7 +280,8 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JPanel initialPanel;
     private javax.swing.JButton lastRunButton;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JButton quitButton;
+    private pdcproject2.quitButton quitButton1;
+    private pdcproject2.quitButton quitButton2;
     private javax.swing.JPanel stage1Panel;
     private javax.swing.JButton startButton;
     private javax.swing.JPanel startPanel;

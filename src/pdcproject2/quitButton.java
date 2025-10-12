@@ -10,6 +10,8 @@ import javax.swing.JButton;
  *
  * @author katelyncorreia
  */
+
+// created this class so that we can have a reusable quit button as it is needed for every panel in the game
 public class quitButton extends JButton{
     public quitButton() {
         super("Quit");
