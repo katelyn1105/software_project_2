@@ -3,20 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pdcproject2;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author katelyncorreia
  */
-public class gameWindow extends JFrame {
+public class gameWindow extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(gameWindow.class.getName());
-
+    final int screenWidth = 480;
+    final int screenHeight = 480;
     /**
      * Creates new form gameWindow
      */
     public gameWindow() {
         initComponents();
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        this.setBackground(Color.DARK_GRAY);
     }
 
     /**
@@ -28,22 +36,55 @@ public class gameWindow extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cardPanel = new javax.swing.JPanel();
+        initialPanel = new javax.swing.JPanel();
+        image1 = new javax.swing.JLabel();
+        titleLabel1 = new javax.swing.JLabel();
+        titleLabel2 = new javax.swing.JLabel();
+        startButton = new javax.swing.JButton();
+        highscoresButton = new javax.swing.JButton();
+        lastRunButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        startPanel = new javax.swing.JPanel();
+        image2 = new javax.swing.JLabel();
+        titleLabel3 = new javax.swing.JLabel();
+        title2Label1 = new javax.swing.JLabel();
+        confirmButton1 = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        enterNameBox = new javax.swing.JTextField();
+        errorLabel = new javax.swing.JLabel();
+        stage1Panel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        jButton1.setText("Start");
+        cardPanel.setToolTipText("");
+        cardPanel.setMaximumSize(new java.awt.Dimension(480, 480));
+        cardPanel.setMinimumSize(new java.awt.Dimension(480, 480));
+        cardPanel.setPreferredSize(new java.awt.Dimension(480, 480));
+        cardPanel.setLayout(new java.awt.CardLayout());
 
-        jButton2.setText("Highscores");
+        initialPanel.setMaximumSize(new java.awt.Dimension(480, 480));
+        initialPanel.setMinimumSize(new java.awt.Dimension(480, 480));
+        initialPanel.setPreferredSize(new java.awt.Dimension(480, 480));
 
-        jButton3.setText("Last run");
+        image1.setText("jLabel1");
+
+        titleLabel1.setText("Welcome to...");
+
+        titleLabel2.setFont(new java.awt.Font("Kavivanar", 1, 24)); // NOI18N
+        titleLabel2.setText("ESCAPE THE MIZTHERY LAIR!!!");
+
+        startButton.setText("Start");
+        startButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startButtonActionPerformed(evt);
+            }
+        });
+
+        highscoresButton.setText("Highscores");
+
+        lastRunButton.setText("Last run");
 
         quitButton.setText("Quit");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,80 +93,164 @@ public class gameWindow extends JFrame {
             }
         });
 
-        jLabel1.setText("Welcome to...");
-
-        jLabel2.setText("jLabel2");
-
-        jLabel3.setFont(new java.awt.Font("Kavivanar", 1, 24)); // NOI18N
-        jLabel3.setText("ESACPE THE MIZTHERY LAIR!!!");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout initialPanelLayout = new javax.swing.GroupLayout(initialPanel);
+        initialPanel.setLayout(initialPanelLayout);
+        initialPanelLayout.setHorizontalGroup(
+            initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(initialPanelLayout.createSequentialGroup()
+                .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(initialPanelLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jButton1)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton2)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton3)
-                        .addGap(28, 28, 28)
+                        .addComponent(startButton)
+                        .addGap(32, 32, 32)
+                        .addComponent(highscoresButton)
+                        .addGap(38, 38, 38)
+                        .addComponent(lastRunButton)
+                        .addGap(31, 31, 31)
                         .addComponent(quitButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel1)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addGroup(initialPanelLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(titleLabel1)))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialPanelLayout.createSequentialGroup()
+                        .addComponent(image1)
+                        .addGap(218, 218, 218))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialPanelLayout.createSequentialGroup()
+                        .addComponent(titleLabel2)
+                        .addGap(83, 83, 83))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(104, 104, 104)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
+        initialPanelLayout.setVerticalGroup(
+            initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(initialPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(titleLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleLabel2)
+                .addGap(130, 130, 130)
+                .addComponent(image1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(startButton)
+                    .addComponent(highscoresButton)
+                    .addComponent(lastRunButton)
                     .addComponent(quitButton))
-                .addGap(65, 65, 65))
+                .addGap(57, 57, 57))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        cardPanel.add(initialPanel, "initialPanel");
+
+        startPanel.setMaximumSize(new java.awt.Dimension(480, 480));
+
+        image2.setText("image");
+
+        titleLabel3.setText("Welcome to...");
+
+        title2Label1.setFont(new java.awt.Font("Kavivanar", 1, 24)); // NOI18N
+        title2Label1.setText("ESCAPE THE MIZTHERY LAIR!!!");
+
+        confirmButton1.setText("Confirm");
+        confirmButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButton1ActionPerformed(evt);
+            }
+        });
+
+        nameLabel.setText("Please enter your name:");
+
+        javax.swing.GroupLayout startPanelLayout = new javax.swing.GroupLayout(startPanel);
+        startPanel.setLayout(startPanelLayout);
+        startPanelLayout.setHorizontalGroup(
+            startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(titleLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(startPanelLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
+                        .addComponent(enterNameBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(confirmButton1)
+                        .addGap(107, 107, 107))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
+                                .addComponent(image2)
+                                .addGap(218, 218, 218))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, startPanelLayout.createSequentialGroup()
+                                .addComponent(title2Label1)
+                                .addGap(83, 83, 83))))
+                    .addGroup(startPanelLayout.createSequentialGroup()
+                        .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(errorLabel)
+                            .addComponent(nameLabel))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        startPanelLayout.setVerticalGroup(
+            startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(titleLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(title2Label1)
+                .addGap(130, 130, 130)
+                .addComponent(image2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(nameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(startPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmButton1)
+                    .addComponent(enterNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(errorLabel)
+                .addGap(33, 33, 33))
         );
+
+        cardPanel.add(startPanel, "startPanel");
+
+        javax.swing.GroupLayout stage1PanelLayout = new javax.swing.GroupLayout(stage1Panel);
+        stage1Panel.setLayout(stage1PanelLayout);
+        stage1PanelLayout.setHorizontalGroup(
+            stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 491, Short.MAX_VALUE)
+        );
+        stage1PanelLayout.setVerticalGroup(
+            stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 482, Short.MAX_VALUE)
+        );
+
+        cardPanel.add(stage1Panel, "stage1Panel");
+
+        getContentPane().add(cardPanel, "cardPanel");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void confirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButton1ActionPerformed
+        // take what the player enters as their name
+        String name = enterNameBox.getText();
+        // error handling if the player does not enter anything as their name
+        if(!name.isEmpty()) {
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            cardLayout.show(cardPanel, "stage1Panel");
+        } else {
+            errorLabel.setText("Please enter your name to start"); // display this on the label below if the player does not enter anything as their name
+        }
+    }//GEN-LAST:event_confirmButton1ActionPerformed
+
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
-        System.exit(0); // when the quit button is pressed the game exits
+        System.exit(0); // when player clickes the exit button
     }//GEN-LAST:event_quitButtonActionPerformed
+
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "startPanel");
+    }//GEN-LAST:event_startButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,13 +278,23 @@ public class gameWindow extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel cardPanel;
+    private javax.swing.JButton confirmButton1;
+    private javax.swing.JTextField enterNameBox;
+    private javax.swing.JLabel errorLabel;
+    private javax.swing.JButton highscoresButton;
+    private javax.swing.JLabel image1;
+    private javax.swing.JLabel image2;
+    private javax.swing.JPanel initialPanel;
+    private javax.swing.JButton lastRunButton;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JButton quitButton;
+    private javax.swing.JPanel stage1Panel;
+    private javax.swing.JButton startButton;
+    private javax.swing.JPanel startPanel;
+    private javax.swing.JLabel title2Label1;
+    private javax.swing.JLabel titleLabel1;
+    private javax.swing.JLabel titleLabel2;
+    private javax.swing.JLabel titleLabel3;
     // End of variables declaration//GEN-END:variables
 }
