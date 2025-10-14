@@ -18,6 +18,7 @@ public class gameWindow extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(gameWindow.class.getName());
     final int screenWidth = 480;
     final int screenHeight = 480;
+    boolean key = false;
     /**
      * Creates new form gameWindow
      */
@@ -55,6 +56,31 @@ public class gameWindow extends javax.swing.JFrame {
         errorLabel = new javax.swing.JLabel();
         quitButton2 = new pdcproject2.quitButton();
         stage1Panel = new javax.swing.JPanel();
+        treeButton = new javax.swing.JButton();
+        pathButton = new javax.swing.JButton();
+        quitButton3 = new pdcproject2.quitButton();
+        welcomeLabel = new javax.swing.JLabel();
+        nameDisplayLabel = new javax.swing.JLabel();
+        introLabel = new javax.swing.JLabel();
+        infoLabel1 = new javax.swing.JLabel();
+        image3 = new javax.swing.JLabel();
+        treePanel = new javax.swing.JPanel();
+        quitButton4 = new pdcproject2.quitButton();
+        infoLabel2 = new javax.swing.JLabel();
+        image4 = new javax.swing.JLabel();
+        takeKeyButton = new javax.swing.JButton();
+        goBackTreeButton = new javax.swing.JButton();
+        keyLabel = new javax.swing.JLabel();
+        hasKeyLabel = new javax.swing.JLabel();
+        pathPanel = new javax.swing.JPanel();
+        quitButton5 = new pdcproject2.quitButton();
+        infoLabel3 = new javax.swing.JLabel();
+        image5 = new javax.swing.JLabel();
+        unlockFrontDoorButton = new javax.swing.JButton();
+        goBackPathButton = new javax.swing.JButton();
+        noKeyLabel = new javax.swing.JLabel();
+        entrancePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -91,6 +117,10 @@ public class gameWindow extends javax.swing.JFrame {
         initialPanel.setLayout(initialPanelLayout);
         initialPanelLayout.setHorizontalGroup(
             initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(initialPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(titleLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,19 +131,15 @@ public class gameWindow extends javax.swing.JFrame {
                         .addComponent(titleLabel2)
                         .addGap(83, 83, 83))))
             .addGroup(initialPanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(titleLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(initialPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(startButton)
                 .addGap(32, 32, 32)
                 .addComponent(highscoresButton)
                 .addGap(38, 38, 38)
                 .addComponent(lastRunButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(quitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(26, 26, 26))
         );
         initialPanelLayout.setVerticalGroup(
             initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +150,7 @@ public class gameWindow extends javax.swing.JFrame {
                 .addComponent(titleLabel2)
                 .addGap(130, 130, 130)
                 .addComponent(image1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addGroup(initialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startButton)
                     .addComponent(highscoresButton)
@@ -209,18 +235,236 @@ public class gameWindow extends javax.swing.JFrame {
 
         cardPanel.add(startPanel, "startPanel");
 
+        treeButton.setText("Go to the tree");
+        treeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                treeButtonActionPerformed(evt);
+            }
+        });
+
+        pathButton.setText("Follow the path");
+        pathButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pathButtonActionPerformed(evt);
+            }
+        });
+
+        welcomeLabel.setText("Welcome to the game");
+
+        introLabel.setText("Find the hidden treasure and survive!");
+
+        infoLabel1.setText("You see a path up ahead and a big tree in the distance.");
+
+        image3.setText("jLabel1");
+
         javax.swing.GroupLayout stage1PanelLayout = new javax.swing.GroupLayout(stage1Panel);
         stage1Panel.setLayout(stage1PanelLayout);
         stage1PanelLayout.setHorizontalGroup(
             stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stage1PanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(stage1PanelLayout.createSequentialGroup()
+                        .addComponent(treeButton)
+                        .addGap(78, 78, 78)
+                        .addComponent(pathButton)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stage1PanelLayout.createSequentialGroup()
+                        .addComponent(image3)
+                        .addGap(133, 133, 133)))
+                .addComponent(quitButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+            .addGroup(stage1PanelLayout.createSequentialGroup()
+                .addGroup(stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(stage1PanelLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(introLabel))
+                    .addGroup(stage1PanelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(welcomeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameDisplayLabel))
+                    .addGroup(stage1PanelLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(infoLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         stage1PanelLayout.setVerticalGroup(
             stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGroup(stage1PanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(welcomeLabel)
+                    .addComponent(nameDisplayLabel))
+                .addGap(18, 18, 18)
+                .addComponent(introLabel)
+                .addGap(31, 31, 31)
+                .addComponent(infoLabel1)
+                .addGap(83, 83, 83)
+                .addComponent(image3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addGroup(stage1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(treeButton)
+                    .addComponent(pathButton)
+                    .addComponent(quitButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57))
         );
 
         cardPanel.add(stage1Panel, "stage1Panel");
+
+        infoLabel2.setText("You walk up to the big tree, investigating it's branches...");
+
+        image4.setText("jLabel1");
+
+        takeKeyButton.setText("Take the key");
+        takeKeyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                takeKeyButtonActionPerformed(evt);
+            }
+        });
+
+        goBackTreeButton.setText("Go back");
+        goBackTreeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackTreeButtonActionPerformed(evt);
+            }
+        });
+
+        keyLabel.setText("You spot a key!!");
+
+        javax.swing.GroupLayout treePanelLayout = new javax.swing.GroupLayout(treePanel);
+        treePanel.setLayout(treePanelLayout);
+        treePanelLayout.setHorizontalGroup(
+            treePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, treePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(image4)
+                .addGap(223, 223, 223))
+            .addGroup(treePanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(treePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(treePanelLayout.createSequentialGroup()
+                        .addComponent(hasKeyLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, treePanelLayout.createSequentialGroup()
+                        .addGap(0, 56, Short.MAX_VALUE)
+                        .addComponent(infoLabel2)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, treePanelLayout.createSequentialGroup()
+                        .addGroup(treePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(keyLabel)
+                            .addGroup(treePanelLayout.createSequentialGroup()
+                                .addComponent(takeKeyButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(goBackTreeButton)))
+                        .addGap(82, 82, 82)
+                        .addComponent(quitButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
+        );
+        treePanelLayout.setVerticalGroup(
+            treePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(treePanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(infoLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(keyLabel)
+                .addGap(129, 129, 129)
+                .addComponent(image4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addGroup(treePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quitButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(goBackTreeButton)
+                    .addComponent(takeKeyButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hasKeyLabel)
+                .addGap(17, 17, 17))
+        );
+
+        cardPanel.add(treePanel, "treePanel");
+
+        infoLabel3.setText("You find a big mysterious house with a locked door.");
+
+        image5.setText("jLabel1");
+
+        unlockFrontDoorButton.setText("Unlock the door");
+        unlockFrontDoorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unlockFrontDoorButtonActionPerformed(evt);
+            }
+        });
+
+        goBackPathButton.setText("Go back");
+        goBackPathButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackPathButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pathPanelLayout = new javax.swing.GroupLayout(pathPanel);
+        pathPanel.setLayout(pathPanelLayout);
+        pathPanelLayout.setHorizontalGroup(
+            pathPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(image5)
+                .addGap(223, 223, 223))
+            .addGroup(pathPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(pathPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pathPanelLayout.createSequentialGroup()
+                        .addComponent(noKeyLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(infoLabel3)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathPanelLayout.createSequentialGroup()
+                        .addComponent(unlockFrontDoorButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(goBackPathButton)
+                        .addGap(82, 82, 82)
+                        .addComponent(quitButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
+        );
+        pathPanelLayout.setVerticalGroup(
+            pathPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pathPanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(infoLabel3)
+                .addGap(158, 158, 158)
+                .addComponent(image5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addGroup(pathPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quitButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(goBackPathButton)
+                    .addComponent(unlockFrontDoorButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noKeyLabel)
+                .addGap(17, 17, 17))
+        );
+
+        cardPanel.add(pathPanel, "pathPanel");
+
+        jLabel1.setText("ENTRANCE");
+
+        javax.swing.GroupLayout entrancePanelLayout = new javax.swing.GroupLayout(entrancePanel);
+        entrancePanel.setLayout(entrancePanelLayout);
+        entrancePanelLayout.setHorizontalGroup(
+            entrancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrancePanelLayout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addComponent(jLabel1)
+                .addContainerGap(211, Short.MAX_VALUE))
+        );
+        entrancePanelLayout.setVerticalGroup(
+            entrancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entrancePanelLayout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(jLabel1)
+                .addContainerGap(348, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(entrancePanel, "entrancePanel");
 
         getContentPane().add(cardPanel, "cardPanel");
 
@@ -243,6 +487,52 @@ public class gameWindow extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
         cardLayout.show(cardPanel, "startPanel");
     }//GEN-LAST:event_startButtonActionPerformed
+
+    private void treeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treeButtonActionPerformed
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "treePanel");
+    }//GEN-LAST:event_treeButtonActionPerformed
+
+    private void pathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pathButtonActionPerformed
+        // when the user presses the path button
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "pathPanel");
+    }//GEN-LAST:event_pathButtonActionPerformed
+
+    private void goBackTreeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackTreeButtonActionPerformed
+        // user chooses to go back while at tree
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "stage1Panel");
+    }//GEN-LAST:event_goBackTreeButtonActionPerformed
+
+    private void goBackPathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackPathButtonActionPerformed
+        // user chooses to go back while on the path
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "stage1Panel");
+    }//GEN-LAST:event_goBackPathButtonActionPerformed
+
+    private void takeKeyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeKeyButtonActionPerformed
+        // taking the key
+        // DATABASE FOR ITEMS IS NEEDED HERE if we are doing that
+        // for now
+        if (key != true) {
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            cardLayout.show(cardPanel, "stage1Panel");
+            key = true;
+        } else {
+            hasKeyLabel.setText("You already have the key!");
+        }
+    }//GEN-LAST:event_takeKeyButtonActionPerformed
+
+    private void unlockFrontDoorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unlockFrontDoorButtonActionPerformed
+        // if user has key
+        if (key != false) {
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            cardLayout.show(cardPanel, "entrancePanel");
+        } else {
+            noKeyLabel.setText("You need a key!");
+        }
+    }//GEN-LAST:event_unlockFrontDoorButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,21 +563,46 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JPanel cardPanel;
     private javax.swing.JButton confirmButton1;
     private javax.swing.JTextField enterNameBox;
+    private javax.swing.JPanel entrancePanel;
     private javax.swing.JLabel errorLabel;
+    private javax.swing.JButton goBackPathButton;
+    private javax.swing.JButton goBackTreeButton;
+    private javax.swing.JLabel hasKeyLabel;
     private javax.swing.JButton highscoresButton;
     private javax.swing.JLabel image1;
     private javax.swing.JLabel image2;
+    private javax.swing.JLabel image3;
+    private javax.swing.JLabel image4;
+    private javax.swing.JLabel image5;
+    private javax.swing.JLabel infoLabel1;
+    private javax.swing.JLabel infoLabel2;
+    private javax.swing.JLabel infoLabel3;
     private javax.swing.JPanel initialPanel;
+    private javax.swing.JLabel introLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel keyLabel;
     private javax.swing.JButton lastRunButton;
+    private javax.swing.JLabel nameDisplayLabel;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel noKeyLabel;
+    private javax.swing.JButton pathButton;
+    private javax.swing.JPanel pathPanel;
     private pdcproject2.quitButton quitButton1;
     private pdcproject2.quitButton quitButton2;
+    private pdcproject2.quitButton quitButton3;
+    private pdcproject2.quitButton quitButton4;
+    private pdcproject2.quitButton quitButton5;
     private javax.swing.JPanel stage1Panel;
     private javax.swing.JButton startButton;
     private javax.swing.JPanel startPanel;
+    private javax.swing.JButton takeKeyButton;
     private javax.swing.JLabel title2Label1;
     private javax.swing.JLabel titleLabel1;
     private javax.swing.JLabel titleLabel2;
     private javax.swing.JLabel titleLabel3;
+    private javax.swing.JButton treeButton;
+    private javax.swing.JPanel treePanel;
+    private javax.swing.JButton unlockFrontDoorButton;
+    private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
