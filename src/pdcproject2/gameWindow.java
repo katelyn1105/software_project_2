@@ -113,6 +113,47 @@ public class gameWindow extends javax.swing.JFrame {
         treasurePanel = new javax.swing.JPanel();
         infoLabel10 = new javax.swing.JLabel();
         infoLabel11 = new javax.swing.JLabel();
+        gardenPanel = new javax.swing.JPanel();
+        roseBushButton = new javax.swing.JButton();
+        gardenShedButton = new javax.swing.JButton();
+        infoLabel13 = new javax.swing.JLabel();
+        quitButton9 = new pdcproject2.quitButton();
+        infoLabel12 = new javax.swing.JLabel();
+        image9 = new javax.swing.JLabel();
+        infoLabel14 = new javax.swing.JLabel();
+        warningLabel = new javax.swing.JLabel();
+        roseBushPanel = new javax.swing.JPanel();
+        quitButton10 = new pdcproject2.quitButton();
+        infoLabel15 = new javax.swing.JLabel();
+        image10 = new javax.swing.JLabel();
+        goBackGardenButton1 = new javax.swing.JButton();
+        inspectShedButton = new javax.swing.JPanel();
+        quitButton11 = new pdcproject2.quitButton();
+        infoLabel16 = new javax.swing.JLabel();
+        image11 = new javax.swing.JLabel();
+        doorButton = new javax.swing.JButton();
+        goBackGardenButton2 = new javax.swing.JButton();
+        gardenerPanel = new javax.swing.JPanel();
+        infoLabel17 = new javax.swing.JLabel();
+        gardenerDialogue2 = new javax.swing.JLabel();
+        gardenerDialogue1 = new javax.swing.JLabel();
+        infoLabel18 = new javax.swing.JLabel();
+        infoLabel19 = new javax.swing.JLabel();
+        quitButton12 = new pdcproject2.quitButton();
+        unlockShedButton = new javax.swing.JButton();
+        gardenShedPanel = new javax.swing.JPanel();
+        infoLabel20 = new javax.swing.JLabel();
+        infoLabel21 = new javax.swing.JLabel();
+        infoLabel22 = new javax.swing.JLabel();
+        winPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lostPanel = new javax.swing.JPanel();
+        bossFightPanel = new javax.swing.JPanel();
+        infoLabel23 = new javax.swing.JLabel();
+        attackButton = new javax.swing.JButton();
+        begButton = new javax.swing.JButton();
+        quitButton14 = new pdcproject2.quitButton();
+        gardenerDialogue3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -749,6 +790,396 @@ public class gameWindow extends javax.swing.JFrame {
 
         cardPanel.add(treasurePanel, "treasurePanel");
 
+        roseBushButton.setText("Inspect rose bush");
+        roseBushButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roseBushButtonActionPerformed(evt);
+            }
+        });
+
+        gardenShedButton.setText("Go to garden shed");
+        gardenShedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gardenShedButtonActionPerformed(evt);
+            }
+        });
+
+        infoLabel13.setText("The door slams shut behind you! It seem like you're stuck out here...");
+
+        infoLabel12.setText("You leave the house and enter the Garden...");
+
+        image9.setText("jLabel1");
+
+        infoLabel14.setText("The garden shed and rose bush stick out for some reason...");
+
+        javax.swing.GroupLayout gardenPanelLayout = new javax.swing.GroupLayout(gardenPanel);
+        gardenPanel.setLayout(gardenPanelLayout);
+        gardenPanelLayout.setHorizontalGroup(
+            gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gardenPanelLayout.createSequentialGroup()
+                .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gardenPanelLayout.createSequentialGroup()
+                        .addContainerGap(40, Short.MAX_VALUE)
+                        .addComponent(infoLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(gardenPanelLayout.createSequentialGroup()
+                        .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(gardenPanelLayout.createSequentialGroup()
+                                .addGap(111, 111, 111)
+                                .addComponent(infoLabel12))
+                            .addGroup(gardenPanelLayout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(infoLabel14))
+                            .addGroup(gardenPanelLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(roseBushButton)
+                                .addGap(28, 28, 28)
+                                .addComponent(gardenShedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(quitButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(gardenPanelLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(warningLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(gardenPanelLayout.createSequentialGroup()
+                    .addGap(218, 218, 218)
+                    .addComponent(image9)
+                    .addGap(220, 220, 220)))
+        );
+        gardenPanelLayout.setVerticalGroup(
+            gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gardenPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(infoLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE)
+                .addComponent(warningLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gardenShedButton)
+                    .addComponent(roseBushButton)
+                    .addComponent(quitButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
+            .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(gardenPanelLayout.createSequentialGroup()
+                    .addGap(211, 211, 211)
+                    .addComponent(image9)
+                    .addContainerGap(252, Short.MAX_VALUE)))
+        );
+
+        cardPanel.add(gardenPanel, "gardenPanel");
+
+        infoLabel15.setText("You trip over an exposed root and land face-first in the rose bush! ");
+
+        image10.setText("jLabel1");
+
+        goBackGardenButton1.setText("Go back");
+        goBackGardenButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackGardenButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout roseBushPanelLayout = new javax.swing.GroupLayout(roseBushPanel);
+        roseBushPanel.setLayout(roseBushPanelLayout);
+        roseBushPanelLayout.setHorizontalGroup(
+            roseBushPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roseBushPanelLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(infoLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                .addGap(33, 33, 33))
+            .addGroup(roseBushPanelLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(goBackGardenButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(roseBushPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(roseBushPanelLayout.createSequentialGroup()
+                    .addContainerGap(218, Short.MAX_VALUE)
+                    .addGroup(roseBushPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roseBushPanelLayout.createSequentialGroup()
+                            .addComponent(image10)
+                            .addGap(180, 180, 180))
+                        .addComponent(quitButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(40, 40, 40)))
+        );
+        roseBushPanelLayout.setVerticalGroup(
+            roseBushPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roseBushPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(infoLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                .addComponent(goBackGardenButton1)
+                .addGap(37, 37, 37))
+            .addGroup(roseBushPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(roseBushPanelLayout.createSequentialGroup()
+                    .addGap(211, 211, 211)
+                    .addComponent(image10)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                    .addComponent(quitButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(36, 36, 36)))
+        );
+
+        cardPanel.add(roseBushPanel, "roseBushPanel");
+
+        infoLabel16.setText(" The only window is so smeared in dirt you can't see a thing through it");
+
+        image11.setText("jLabel1");
+
+        doorButton.setLabel("Try the door");
+        doorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doorButtonActionPerformed(evt);
+            }
+        });
+
+        goBackGardenButton2.setText("Go back");
+        goBackGardenButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackGardenButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout inspectShedButtonLayout = new javax.swing.GroupLayout(inspectShedButton);
+        inspectShedButton.setLayout(inspectShedButtonLayout);
+        inspectShedButtonLayout.setHorizontalGroup(
+            inspectShedButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inspectShedButtonLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(infoLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(inspectShedButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(inspectShedButtonLayout.createSequentialGroup()
+                    .addGroup(inspectShedButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(inspectShedButtonLayout.createSequentialGroup()
+                            .addGap(39, 39, 39)
+                            .addComponent(doorButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(goBackGardenButton2)
+                            .addGap(82, 82, 82)
+                            .addComponent(quitButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inspectShedButtonLayout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(image11)
+                            .addGap(180, 180, 180)))
+                    .addGap(40, 40, 40)))
+        );
+        inspectShedButtonLayout.setVerticalGroup(
+            inspectShedButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inspectShedButtonLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(infoLabel16)
+                .addContainerGap(416, Short.MAX_VALUE))
+            .addGroup(inspectShedButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(inspectShedButtonLayout.createSequentialGroup()
+                    .addGap(211, 211, 211)
+                    .addComponent(image11)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                    .addGroup(inspectShedButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(quitButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(goBackGardenButton2)
+                        .addComponent(doorButton))
+                    .addGap(36, 36, 36)))
+        );
+
+        cardPanel.add(inspectShedButton, "inspectShedPanel");
+
+        infoLabel17.setText("You try the door, when suddenly the Gardener sticks his head out from");
+
+        gardenerDialogue2.setText("Sure, jus' hadta' ask.");
+
+        gardenerDialogue1.setText("'Oi! Whatcha doin there! Ye trynna get inna ma' shed?");
+
+        infoLabel18.setText("a nearby hedge! ");
+
+        infoLabel19.setText("You now have the key for the garden shed!");
+
+        unlockShedButton.setText("Investigate shed");
+        unlockShedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unlockShedButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout gardenerPanelLayout = new javax.swing.GroupLayout(gardenerPanel);
+        gardenerPanel.setLayout(gardenerPanelLayout);
+        gardenerPanelLayout.setHorizontalGroup(
+            gardenerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gardenerPanelLayout.createSequentialGroup()
+                .addGroup(gardenerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(gardenerPanelLayout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(infoLabel18))
+                    .addGroup(gardenerPanelLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(infoLabel19))
+                    .addGroup(gardenerPanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(gardenerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gardenerDialogue2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gardenerDialogue1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(gardenerPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(gardenerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gardenerPanelLayout.createSequentialGroup()
+                                .addComponent(unlockShedButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(quitButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(infoLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        gardenerPanelLayout.setVerticalGroup(
+            gardenerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gardenerPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(infoLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(gardenerDialogue1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gardenerDialogue2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
+                .addGroup(gardenerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(unlockShedButton)
+                    .addComponent(quitButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
+        );
+
+        cardPanel.add(gardenerPanel, "gardenerPanel");
+
+        infoLabel20.setText("You hear a raspy laugh before the gardener steps into the dim light");
+
+        infoLabel21.setText("You hear the door slam shut (this is getting old, you think)");
+
+        infoLabel22.setText("The door creaks open, you swallow your fear and enter");
+
+        javax.swing.GroupLayout gardenShedPanelLayout = new javax.swing.GroupLayout(gardenShedPanel);
+        gardenShedPanel.setLayout(gardenShedPanelLayout);
+        gardenShedPanelLayout.setHorizontalGroup(
+            gardenShedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gardenShedPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(gardenShedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gardenShedPanelLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(gardenShedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(infoLabel21)
+                            .addComponent(infoLabel22)))
+                    .addComponent(infoLabel20))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        gardenShedPanelLayout.setVerticalGroup(
+            gardenShedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gardenShedPanelLayout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(infoLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoLabel20)
+                .addContainerGap(239, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(gardenShedPanel, "gardenShedPanel");
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout winPanelLayout = new javax.swing.GroupLayout(winPanel);
+        winPanel.setLayout(winPanelLayout);
+        winPanelLayout.setHorizontalGroup(
+            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winPanelLayout.createSequentialGroup()
+                .addGap(203, 203, 203)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        winPanelLayout.setVerticalGroup(
+            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winPanelLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel1)
+                .addContainerGap(400, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(winPanel, "winPanel");
+
+        javax.swing.GroupLayout lostPanelLayout = new javax.swing.GroupLayout(lostPanel);
+        lostPanel.setLayout(lostPanelLayout);
+        lostPanelLayout.setHorizontalGroup(
+            lostPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+        );
+        lostPanelLayout.setVerticalGroup(
+            lostPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+        );
+
+        cardPanel.add(lostPanel, "lostPanel");
+
+        infoLabel23.setText("You spot Sir Doncillme in the corner tied up...");
+
+        attackButton.setText("Attack");
+        attackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attackButtonActionPerformed(evt);
+            }
+        });
+
+        begButton.setText("Beg for mercy");
+        begButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                begButtonActionPerformed(evt);
+            }
+        });
+
+        gardenerDialogue3.setText("*random threathening things that the gardener says*");
+
+        javax.swing.GroupLayout bossFightPanelLayout = new javax.swing.GroupLayout(bossFightPanel);
+        bossFightPanel.setLayout(bossFightPanelLayout);
+        bossFightPanelLayout.setHorizontalGroup(
+            bossFightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bossFightPanelLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(infoLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bossFightPanelLayout.createSequentialGroup()
+                .addGroup(bossFightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(bossFightPanelLayout.createSequentialGroup()
+                        .addContainerGap(77, Short.MAX_VALUE)
+                        .addComponent(gardenerDialogue3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bossFightPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(attackButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(begButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(quitButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25))
+        );
+        bossFightPanelLayout.setVerticalGroup(
+            bossFightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bossFightPanelLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(infoLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(gardenerDialogue3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
+                .addGroup(bossFightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quitButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(attackButton)
+                    .addComponent(begButton))
+                .addGap(30, 30, 30))
+        );
+
+        cardPanel.add(bossFightPanel, "bossFightPanel");
+
         getContentPane().add(cardPanel, "cardPanel");
 
         pack();
@@ -839,7 +1270,8 @@ public class gameWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_atticButtonActionPerformed
 
     private void gardenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gardenButtonActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "gardenPanel");
     }//GEN-LAST:event_gardenButtonActionPerformed
 
     private void returnEntranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnEntranceButtonActionPerformed
@@ -880,6 +1312,41 @@ public class gameWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_returnEntranceButton2ActionPerformed
 
+    private void roseBushButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roseBushButtonActionPerformed
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "roseBushPanel");
+    }//GEN-LAST:event_roseBushButtonActionPerformed
+
+    private void gardenShedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gardenShedButtonActionPerformed
+        
+    }//GEN-LAST:event_gardenShedButtonActionPerformed
+
+    private void goBackGardenButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackGardenButton1ActionPerformed
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "gardenPanel");
+        warningLabel.setText("Probably not a good idea...");
+    }//GEN-LAST:event_goBackGardenButton1ActionPerformed
+
+    private void doorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doorButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doorButtonActionPerformed
+
+    private void goBackGardenButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackGardenButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_goBackGardenButton2ActionPerformed
+
+    private void unlockShedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unlockShedButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unlockShedButtonActionPerformed
+
+    private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_attackButtonActionPerformed
+
+    private void begButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_begButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_begButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -906,23 +1373,38 @@ public class gameWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton attackButton;
     private javax.swing.JButton atticButton;
     private javax.swing.JPanel atticPanel;
+    private javax.swing.JButton begButton;
+    private javax.swing.JPanel bossFightPanel;
     private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel chefDialogue;
     private javax.swing.JLabel chefDialogue2;
     private javax.swing.JLabel chefDialogue3;
     private javax.swing.JButton confirmButton1;
+    private javax.swing.JButton doorButton;
     private javax.swing.JTextField enterNameBox;
     private javax.swing.JPanel entrancePanel;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JButton gardenButton;
+    private javax.swing.JPanel gardenPanel;
+    private javax.swing.JButton gardenShedButton;
+    private javax.swing.JPanel gardenShedPanel;
+    private javax.swing.JLabel gardenerDialogue1;
+    private javax.swing.JLabel gardenerDialogue2;
+    private javax.swing.JLabel gardenerDialogue3;
+    private javax.swing.JPanel gardenerPanel;
+    private javax.swing.JButton goBackGardenButton1;
+    private javax.swing.JButton goBackGardenButton2;
     private javax.swing.JButton goBackPathButton;
     private javax.swing.JButton goBackTreeButton;
     private javax.swing.JLabel hasKeyLabel;
     private javax.swing.JLabel hasSwordLabel;
     private javax.swing.JButton highscoresButton;
     private javax.swing.JLabel image1;
+    private javax.swing.JLabel image10;
+    private javax.swing.JLabel image11;
     private javax.swing.JLabel image2;
     private javax.swing.JLabel image3;
     private javax.swing.JLabel image4;
@@ -930,10 +1412,23 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JLabel image6;
     private javax.swing.JLabel image7;
     private javax.swing.JLabel image8;
+    private javax.swing.JLabel image9;
     private javax.swing.JLabel infoLabel1;
     private javax.swing.JLabel infoLabel10;
     private javax.swing.JLabel infoLabel11;
+    private javax.swing.JLabel infoLabel12;
+    private javax.swing.JLabel infoLabel13;
+    private javax.swing.JLabel infoLabel14;
+    private javax.swing.JLabel infoLabel15;
+    private javax.swing.JLabel infoLabel16;
+    private javax.swing.JLabel infoLabel17;
+    private javax.swing.JLabel infoLabel18;
+    private javax.swing.JLabel infoLabel19;
     private javax.swing.JLabel infoLabel2;
+    private javax.swing.JLabel infoLabel20;
+    private javax.swing.JLabel infoLabel21;
+    private javax.swing.JLabel infoLabel22;
+    private javax.swing.JLabel infoLabel23;
     private javax.swing.JLabel infoLabel3;
     private javax.swing.JLabel infoLabel4;
     private javax.swing.JLabel infoLabel5;
@@ -942,18 +1437,25 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JLabel infoLabel8;
     private javax.swing.JLabel infoLabel9;
     private javax.swing.JPanel initialPanel;
+    private javax.swing.JPanel inspectShedButton;
     private javax.swing.JLabel introLabel;
     private javax.swing.JButton investigateButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel keyLabel;
     private javax.swing.JButton kitchenButton;
     private javax.swing.JPanel kitchenPanel;
     private javax.swing.JButton lastRunButton;
+    private javax.swing.JPanel lostPanel;
     private javax.swing.JLabel nameDisplayLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel noKeyLabel;
     private javax.swing.JButton pathButton;
     private javax.swing.JPanel pathPanel;
     private pdcproject2.quitButton quitButton1;
+    private pdcproject2.quitButton quitButton10;
+    private pdcproject2.quitButton quitButton11;
+    private pdcproject2.quitButton quitButton12;
+    private pdcproject2.quitButton quitButton14;
     private pdcproject2.quitButton quitButton2;
     private pdcproject2.quitButton quitButton3;
     private pdcproject2.quitButton quitButton4;
@@ -961,8 +1463,11 @@ public class gameWindow extends javax.swing.JFrame {
     private pdcproject2.quitButton quitButton6;
     private pdcproject2.quitButton quitButton7;
     private pdcproject2.quitButton quitButton8;
+    private pdcproject2.quitButton quitButton9;
     private javax.swing.JButton returnEntranceButton;
     private javax.swing.JButton returnEntranceButton2;
+    private javax.swing.JButton roseBushButton;
+    private javax.swing.JPanel roseBushPanel;
     private javax.swing.JPanel stage1Panel;
     private javax.swing.JButton startButton;
     private javax.swing.JPanel startPanel;
@@ -975,6 +1480,9 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JButton treeButton;
     private javax.swing.JPanel treePanel;
     private javax.swing.JButton unlockFrontDoorButton;
+    private javax.swing.JButton unlockShedButton;
+    private javax.swing.JLabel warningLabel;
     private javax.swing.JLabel welcomeLabel;
+    private javax.swing.JPanel winPanel;
     // End of variables declaration//GEN-END:variables
 }
