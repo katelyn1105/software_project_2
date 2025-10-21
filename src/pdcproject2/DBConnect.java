@@ -76,9 +76,9 @@ public final class DBConnect {
 
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, name);
-            ps.setInt(2, score);
-            ps.setString(3, inv);
+            //ps.setString(1, name);
+            //ps.setInt(2, score);
+            //ps.setString(3, inv);
             ps.executeUpdate();//Need to code this in, lookat DBManager
             
             System.out.println("Save succesful");
