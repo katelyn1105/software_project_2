@@ -16,7 +16,7 @@ public final class DBConnect {
     private final static String DB_URL = "jdbc:derby://localhost:1527/Project2DB";
     private final static String TABLE_NAME = "Player_Data";
     Connection conn;
-    gameWindow gW = new gameWindow();
+ 
     
     public DBConnect(){
     establishConnect();
@@ -26,11 +26,12 @@ public final class DBConnect {
     
     public void establishConnect(){
         try{
-        conn = DriverManager.getConnection(DB_URL);
+        conn = DriverManager.getConnection(DB_URL, "app", "app");
             System.out.println("Connected to: " + DB_URL);
                 }catch(SQLException e){
                     
-                   System.out.println("Connection failed. ");
+                   System.out.println("Connection failed. " + e.getMessage());
+                   
                 }
     }
     
@@ -79,8 +80,7 @@ public final class DBConnect {
         
         //I ripped this from te tut and changed it so it needs testing...AGAIN.
 
-        try (Connection conn = DriverManager.getConnection(DB_URL);
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (PreparedStatement ps = conn.prepareStatement(sql)){
             ps.setString(1, playerName);
             ps.setInt(2, score);
             ps.setString(3, inven);

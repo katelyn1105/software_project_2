@@ -12,5 +12,8 @@
                 <root id="test.src.dir"/>
             </test-roots>
         </data>
+        <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">
+            <definitions>C:\Users\1708k\OneDrive\Documents\AUT Stuff\Program Design &amp; Construction\db-derby-10.14.2.0-lib\nblibraries.properties</definitions>
+        </libraries>
     </configuration>
 </project>

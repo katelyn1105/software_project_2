@@ -9,6 +9,9 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+import javax.swing.*;
+import java.util.*;
+
 /**
  *
  * @author katelyncorreia
@@ -19,7 +22,7 @@ public class gameWindow extends javax.swing.JFrame {
     final int screenWidth = 480;
     final int screenHeight = 480;
     
-    private DBConnect db = new DBConnect();//Added Private.
+    private DBConnect db;//Added Private.
     
     
     boolean key; // need database instead done
@@ -29,6 +32,10 @@ public class gameWindow extends javax.swing.JFrame {
     boolean beenToKitchen; // need database instead done 
     
     String name;
+    
+    private int score;
+    
+    private Set<String> inventory = new HashSet<>();
     
     
     public void setName(String n){
@@ -41,6 +48,7 @@ public class gameWindow extends javax.swing.JFrame {
     
     public void setKey(){
         this.key = true;
+        inventory.add("Key");
     }
     public boolean getKey(){
         return key;
@@ -48,6 +56,7 @@ public class gameWindow extends javax.swing.JFrame {
     
     public void setSword(){
     this.sword = true;
+    inventory.add("Sword");
     }
     public boolean getSword(){
         return sword;
@@ -60,6 +69,30 @@ public class gameWindow extends javax.swing.JFrame {
         return beenToKitchen;
     }
     
+    public void addScore(){
+        this.score++;
+    }
+    
+    public int getScore(){
+        return score;
+    }
+    
+    public void savePlayer( ){
+        if (db == null) {//I can add a single method for checking but this is for testing.
+            db = new DBConnect();
+            System.out.println("Saved");
+        }
+        db.savePlayer(name, score, inventory);
+    }
+    
+    public void showHighScore(){
+        if (db == null) {
+            db = new DBConnect();
+            System.out.println("Connected hscore.");
+        }
+        db.highScores();
+    }
+    
     /**
      * Creates new form gameWindow
      */
@@ -70,6 +103,11 @@ public class gameWindow extends javax.swing.JFrame {
         this.key = false;
         this.sword = false;
         this.beenToKitchen = false;
+        this.score = 0;
+        
+        SwingUtilities.invokeLater(() -> {//Never seen thisbefore but is the recommended solution.
+        db = new DBConnect();
+        });
     }
 
     /**
@@ -223,6 +261,11 @@ public class gameWindow extends javax.swing.JFrame {
         });
 
         highscoresButton.setText("Highscores");
+        highscoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                highscoresButtonActionPerformed(evt);
+            }
+        });
 
         lastRunButton.setText("Last run");
 
@@ -1424,6 +1467,10 @@ public class gameWindow extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
         cardLayout.show(cardPanel, "lostPanel");
     }//GEN-LAST:event_begButtonActionPerformed
+
+    private void highscoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highscoresButtonActionPerformed
+        showHighScore();
+    }//GEN-LAST:event_highscoresButtonActionPerformed
 
     /**
      * @param args the command line arguments
