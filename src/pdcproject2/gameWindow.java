@@ -145,15 +145,17 @@ public class gameWindow extends javax.swing.JFrame {
         infoLabel20 = new javax.swing.JLabel();
         infoLabel21 = new javax.swing.JLabel();
         infoLabel22 = new javax.swing.JLabel();
-        winPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         lostPanel = new javax.swing.JPanel();
+        lostLabel = new javax.swing.JLabel();
+        lostLabel2 = new javax.swing.JLabel();
         bossFightPanel = new javax.swing.JPanel();
         infoLabel23 = new javax.swing.JLabel();
         attackButton = new javax.swing.JButton();
         begButton = new javax.swing.JButton();
         quitButton14 = new pdcproject2.quitButton();
         gardenerDialogue3 = new javax.swing.JLabel();
+        winPanel = new javax.swing.JPanel();
+        winLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -831,17 +833,16 @@ public class gameWindow extends javax.swing.JFrame {
                                 .addComponent(infoLabel14))
                             .addGroup(gardenPanelLayout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(roseBushButton)
-                                .addGap(28, 28, 28)
-                                .addComponent(gardenShedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(quitButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(warningLabel)
+                                    .addGroup(gardenPanelLayout.createSequentialGroup()
+                                        .addComponent(roseBushButton)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(gardenShedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(quitButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(gardenPanelLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(warningLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(gardenPanelLayout.createSequentialGroup()
                     .addGap(218, 218, 218)
@@ -857,9 +858,9 @@ public class gameWindow extends javax.swing.JFrame {
                 .addComponent(infoLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(infoLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                 .addComponent(warningLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(gardenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gardenShedButton)
                     .addComponent(roseBushButton)
@@ -1089,36 +1090,31 @@ public class gameWindow extends javax.swing.JFrame {
 
         cardPanel.add(gardenShedPanel, "gardenShedPanel");
 
-        jLabel1.setText("jLabel1");
+        lostLabel.setText("You do not have a weapon to defeat the gardener and fail to rescue, and die");
 
-        javax.swing.GroupLayout winPanelLayout = new javax.swing.GroupLayout(winPanel);
-        winPanel.setLayout(winPanelLayout);
-        winPanelLayout.setHorizontalGroup(
-            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winPanelLayout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        winPanelLayout.setVerticalGroup(
-            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winPanelLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1)
-                .addContainerGap(400, Short.MAX_VALUE))
-        );
-
-        cardPanel.add(winPanel, "winPanel");
+        lostLabel2.setText("He shows you no mercy");
 
         javax.swing.GroupLayout lostPanelLayout = new javax.swing.GroupLayout(lostPanel);
         lostPanel.setLayout(lostPanelLayout);
         lostPanelLayout.setHorizontalGroup(
             lostPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(lostPanelLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(lostLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lostPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(lostLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         lostPanelLayout.setVerticalGroup(
             lostPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(lostPanelLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(lostLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lostLabel2)
+                .addContainerGap(311, Short.MAX_VALUE))
         );
 
         cardPanel.add(lostPanel, "lostPanel");
@@ -1179,6 +1175,27 @@ public class gameWindow extends javax.swing.JFrame {
         );
 
         cardPanel.add(bossFightPanel, "bossFightPanel");
+
+        winLabel.setText("You pull out the sword, defeat the gardener and rescue the prisoner");
+
+        javax.swing.GroupLayout winPanelLayout = new javax.swing.GroupLayout(winPanel);
+        winPanel.setLayout(winPanelLayout);
+        winPanelLayout.setHorizontalGroup(
+            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(winLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        winPanelLayout.setVerticalGroup(
+            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winPanelLayout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(winLabel)
+                .addContainerGap(355, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(winPanel, "winPanel");
 
         getContentPane().add(cardPanel, "cardPanel");
 
@@ -1318,7 +1335,8 @@ public class gameWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_roseBushButtonActionPerformed
 
     private void gardenShedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gardenShedButtonActionPerformed
-        
+       CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "inspectShedPanel"); 
     }//GEN-LAST:event_gardenShedButtonActionPerformed
 
     private void goBackGardenButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackGardenButton1ActionPerformed
@@ -1328,23 +1346,45 @@ public class gameWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_goBackGardenButton1ActionPerformed
 
     private void doorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doorButtonActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "gardenerPanel");
     }//GEN-LAST:event_doorButtonActionPerformed
 
     private void goBackGardenButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackGardenButton2ActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "gardenPanel");
+        warningLabel.setText("Probably not a good idea...");
     }//GEN-LAST:event_goBackGardenButton2ActionPerformed
 
     private void unlockShedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unlockShedButtonActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "gardenShedPanel");
+        new Thread(() -> {
+        try {
+            Thread.sleep(5000); // delay for 5 seconds so player can read the info on the panel
+        } catch (InterruptedException ex) {
+            }
+
+        // go to the boss fight panel
+        SwingUtilities.invokeLater(() -> {
+            cardLayout.show(cardPanel, "bossFightPanel");
+        });
+    }).start();
     }//GEN-LAST:event_unlockShedButtonActionPerformed
 
     private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
-        // TODO add your handling code here:
+        if(sword == true) {
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            cardLayout.show(cardPanel, "winPanel");
+        } else {
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            cardLayout.show(cardPanel, "lostPanel");
+        }
     }//GEN-LAST:event_attackButtonActionPerformed
 
     private void begButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_begButtonActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        cardLayout.show(cardPanel, "lostPanel");
     }//GEN-LAST:event_begButtonActionPerformed
 
     /**
@@ -1440,11 +1480,12 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JPanel inspectShedButton;
     private javax.swing.JLabel introLabel;
     private javax.swing.JButton investigateButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel keyLabel;
     private javax.swing.JButton kitchenButton;
     private javax.swing.JPanel kitchenPanel;
     private javax.swing.JButton lastRunButton;
+    private javax.swing.JLabel lostLabel;
+    private javax.swing.JLabel lostLabel2;
     private javax.swing.JPanel lostPanel;
     private javax.swing.JLabel nameDisplayLabel;
     private javax.swing.JLabel nameLabel;
@@ -1483,6 +1524,7 @@ public class gameWindow extends javax.swing.JFrame {
     private javax.swing.JButton unlockShedButton;
     private javax.swing.JLabel warningLabel;
     private javax.swing.JLabel welcomeLabel;
+    private javax.swing.JLabel winLabel;
     private javax.swing.JPanel winPanel;
     // End of variables declaration//GEN-END:variables
 }
