@@ -18,6 +18,7 @@ public class PDCProject2 {
         
        Window window = new Window();
        JFrame frame = new JFrame();
+       gameWindow win = new gameWindow();
         
         
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +30,7 @@ public class PDCProject2 {
        
        
        frame.add(window);
+       frame.add(win);
        frame.pack();
         
     }

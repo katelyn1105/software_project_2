@@ -18,12 +18,47 @@ public class gameWindow extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(gameWindow.class.getName());
     final int screenWidth = 480;
     final int screenHeight = 480;
-    boolean key = false; // need database instead
     
-    boolean sword = false; // need database instead
+    private DBConnect db = new DBConnect();//Added Private.
     
-    boolean beenToKitchen = false; // need database instead
     
+    boolean key; // need database instead done
+    
+    boolean sword; // need database instead done
+    
+    boolean beenToKitchen; // need database instead done 
+    
+    String name;
+    
+    
+    public void setName(String n){
+        name = n;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void setKey(){
+        this.key = true;
+    }
+    public boolean getKey(){
+        return key;
+    }
+    
+    public void setSword(){
+    this.sword = true;
+    }
+    public boolean getSword(){
+        return sword;
+    }
+    
+        public void setKitchen(){
+        this.beenToKitchen = true;
+    }
+    public boolean getKitchen(){
+        return beenToKitchen;
+    }
     
     /**
      * Creates new form gameWindow
@@ -32,6 +67,9 @@ public class gameWindow extends javax.swing.JFrame {
         initComponents();
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.DARK_GRAY);
+        this.key = false;
+        this.sword = false;
+        this.beenToKitchen = false;
     }
 
     /**
@@ -1204,9 +1242,9 @@ public class gameWindow extends javax.swing.JFrame {
 
     private void confirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButton1ActionPerformed
         // take what the player enters as their name
-        String name = enterNameBox.getText();
+        setName(enterNameBox.getText());
         // error handling if the player does not enter anything as their name
-        if(!name.isEmpty()) {
+        if(!getName().isEmpty()) {
             CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
             cardLayout.show(cardPanel, "stage1Panel");
         } else {

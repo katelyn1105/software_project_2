@@ -5,6 +5,8 @@
 package pdcproject2;
 import java.sql.*;
 import java.util.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author 1708k
@@ -14,11 +16,11 @@ public final class DBConnect {
     private final static String DB_URL = "jdbc:derby://localhost:1527/Project2DB";
     private final static String TABLE_NAME = "Player_Data";
     Connection conn;
-    
+    gameWindow gW = new gameWindow();
     
     public DBConnect(){
     establishConnect();
-        
+    createTable();
         
 }
     
@@ -27,7 +29,8 @@ public final class DBConnect {
         conn = DriverManager.getConnection(DB_URL);
             System.out.println("Connected to: " + DB_URL);
                 }catch(SQLException e){
-                    e.printStackTrace();
+                    
+                   System.out.println("Connection failed. ");
                 }
     }
     
@@ -58,13 +61,15 @@ public final class DBConnect {
     }
     
     //This is only to save (Which works), not to load (Which blows up netbeans).
-    public void savePlayer(Statement statement) {
+    public void savePlayer(String playerName, int score, Set<String> inventory) {
         //This is where I would use the getters
         
         //Save into variables -> into table (E.g String name = bla.getName();)
+        
+        String inven = String.join(", ", inventory);
 
         String sql = """
-            MERGE INTO PLAYERS p
+            MERGE INTO PLAYER_DATA p
             USING (VALUES (?, ?, ?)) AS vals(playerName, score, inventory)
             ON p.playerName = vals.playerName
             WHEN MATCHED THEN UPDATE SET score = vals.score, inventory = vals.inventory
@@ -76,9 +81,9 @@ public final class DBConnect {
 
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            //ps.setString(1, name);
-            //ps.setInt(2, score);
-            //ps.setString(3, inv);
+            ps.setString(1, playerName);
+            ps.setInt(2, score);
+            ps.setString(3, inven);
             ps.executeUpdate();//Need to code this in, lookat DBManager
             
             System.out.println("Save succesful");
@@ -87,5 +92,34 @@ public final class DBConnect {
         }
     }
     
+    
+    
+    
+    public void highScores() {
+        String[] columns = {"Player Name", "Score", "Inventory"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+        String sql = "SELECT * FROM PLAYER_DATA ORDER BY score DESC";
+
+        try (Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+
+            while (rs.next()) {
+                
+                String name = rs.getString("playerName");
+                int score = rs.getInt("score");
+                String inv = rs.getString("inventory");
+                
+                model.addRow(new Object[]{name, score, inv});
+            }
+
+            JTable table = new JTable(model);
+            JScrollPane scroll = new JScrollPane(table);
+            JOptionPane.showMessageDialog(null, scroll, "High Scores", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error loading highscores: " + e.getMessage());
+        }
+    }
     
 }
