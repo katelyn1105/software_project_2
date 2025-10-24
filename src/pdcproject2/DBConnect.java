@@ -63,33 +63,48 @@ public final class DBConnect {
     
     //This is only to save (Which works), not to load (Which blows up netbeans).
     public void savePlayer(String playerName, int score, Set<String> inventory) {
-        //This is where I would use the getters
+        
+        if(conn==null){
+            System.out.println("No connection found.");
+            return;
+        }
         
         //Save into variables -> into table (E.g String name = bla.getName();)
         
         String inven = String.join(", ", inventory);
 
-        String sql = """
-            MERGE INTO PLAYER_DATA p
-            USING (VALUES (?, ?, ?)) AS vals(playerName, score, inventory)
-            ON p.playerName = vals.playerName
-            WHEN MATCHED THEN UPDATE SET score = vals.score, inventory = vals.inventory
-            WHEN NOT MATCHED THEN INSERT (playerName, score, inventory)
-            VALUES (vals.playerName, vals.score, vals.inventory)
-            """;
+        String sqlNew = "UPDATE PLAYER_DATA SET score = ?, inventory = ? WHERE playerName = ?";
+        
+        String sqlInsert = "INSERT INTO PLAYER_DATA (playerName, score, inventory) VALUES (?, ?, ?)";
         
         //I ripped this from te tut and changed it so it needs testing...AGAIN.
 
-        try (PreparedStatement ps = conn.prepareStatement(sql)){
-            ps.setString(1, playerName);
-            ps.setInt(2, score);
-            ps.setString(3, inven);
-            ps.executeUpdate();//Need to code this in, lookat DBManager
+        try (PreparedStatement ps = conn.prepareStatement(sqlNew)){
+            ps.setInt(1, score);
+            
+            
+            ps.setString(2, inven);
+            ps.setString(3, playerName);
+            int rows = ps.executeUpdate();//Need to code this in, lookat DBManager
+            
+            
+            
+            if (rows == 0) { //First 
+                try (PreparedStatement insertPs = conn.prepareStatement(sqlInsert)) {
+                    insertPs.setString(1, playerName);
+                    insertPs.setInt(2, score);
+                    insertPs.setString(3, inven);
+                    insertPs.executeUpdate();
+                    System.out.println("Succefully added player.");
+                }
+            }
             
             System.out.println("Save succesful");
         } catch (SQLException e) {
             System.out.println("Error whilst saving: " + e.getMessage());
         }
+        
+        
     }
     
     
