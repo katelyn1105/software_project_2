@@ -24,6 +24,8 @@ public class gameWindow extends javax.swing.JFrame {
     
     private DBConnect db;//Added Private.
     
+    ButtonTracker tracker = new ButtonTracker();
+    
     
     boolean key; // need database instead done
     
@@ -1298,6 +1300,7 @@ public class gameWindow extends javax.swing.JFrame {
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
         cardLayout.show(cardPanel, "startPanel");
+        tracker.startCount();
     }//GEN-LAST:event_startButtonActionPerformed
 
     private void treeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treeButtonActionPerformed
@@ -1457,6 +1460,8 @@ public class gameWindow extends javax.swing.JFrame {
         if(sword == true) {
             CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
             cardLayout.show(cardPanel, "winPanel");
+            tracker.stopCount();
+            db.savePlayer(name, tracker.getScore(), inventory);
         } else {
             CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
             cardLayout.show(cardPanel, "lostPanel");

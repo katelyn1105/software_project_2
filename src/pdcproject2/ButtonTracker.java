@@ -63,10 +63,10 @@ public class ButtonTracker {
         setScore(0);
     }
     
-    public int stopCount(){
+    public void stopCount(){
         setCountOn(false);
-        setScore(100 - getCounter());
-        return getScore();
+        setScore(100 - getCounter());   
+        System.out.println("Final score: " + getScore());
     }
     
     public void addCount(){
