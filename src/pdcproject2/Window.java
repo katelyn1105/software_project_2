@@ -12,10 +12,10 @@ import java.awt.*;
     public class Window extends JFrame {
 
     private final GameController controller;
-    private final gameWindow gui;
+    private final RPGGameWindow gui;
 
     public Window() {
-        gui = new gameWindow();
+        gui = new RPGGameWindow();
         controller = new GameController(gui);
 
         setTitle("Escape RPG");
@@ -32,6 +32,7 @@ import java.awt.*;
         // Start button wiring
         controller.getState(); // initialize state if needed
     }
+    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Window::new);
