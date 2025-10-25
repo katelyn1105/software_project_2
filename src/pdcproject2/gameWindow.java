@@ -39,54 +39,53 @@ public class gameWindow extends javax.swing.JFrame {
     
     private Set<String> inventory = new HashSet<>();
     
-    
-    public void setName(String n){
-        name = n;
-    }
-    
-    public String getName(){
-        return name;
-    }
-    
-    public void setKey(){
-        this.key = true;
-        inventory.add("Key");
-    }
-    public boolean getKey(){
-        return key;
-    }
-    
-    public void setSword(){
-    this.sword = true;
-    inventory.add("Sword");
-    }
-    public boolean getSword(){
-        return sword;
-    }
-    
-        public void setKitchen(){
-        this.beenToKitchen = true;
-    }
-    public boolean getKitchen(){
-        return beenToKitchen;
-    }
-    
-    public void addScore(){
-        this.score++;
-    }
-    
-    public int getScore(){
-        return score;
-    }
-    
-    public void savePlayer( ){
-        if (db == null) {//I can add a single method for checking but this is for testing.
-            db = new DBConnect();
-            System.out.println("Saved");
-        }
-        db.savePlayer(name, score, inventory);
-    }
-    
+//    public void setName(String n){
+//        name = n;
+//    }
+//    
+//    public String getName(){
+//        return name;
+//    }
+//    
+//    public void setKey(){
+//        this.key = true;
+//        inventory.add("Key");
+//    }
+//    public boolean getKey(){
+//        return key;
+//    }
+//    
+//    public void setSword(){
+//    this.sword = true;
+//    inventory.add("Sword");
+//    }
+//    public boolean getSword(){
+//        return sword;
+//    }
+//    
+//        public void setKitchen(){
+//        this.beenToKitchen = true;
+//    }
+//    public boolean getKitchen(){
+//        return beenToKitchen;
+//    }
+//    
+//    public void addScore(){
+//        this.score++;
+//    }
+//    
+//    public int getScore(){
+//        return score;
+//    }
+//    
+//    public void savePlayer( ){
+//        if (db == null) {//I can add a single method for checking but this is for testing.
+//            db = new DBConnect();
+//            System.out.println("Saved");
+//        }
+//        db.savePlayer(name, score, inventory);
+//    }
+//    
     public void showHighScore(){
         if (db == null) {
             db = new DBConnect();
@@ -94,7 +93,7 @@ public class gameWindow extends javax.swing.JFrame {
         }
         db.highScores();
     }
-    
+//    
     /**
      * Creates new form gameWindow
      */
@@ -102,16 +101,22 @@ public class gameWindow extends javax.swing.JFrame {
         initComponents();
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.DARK_GRAY);
-        this.key = false;
-        this.sword = false;
-        this.beenToKitchen = false;
-        this.score = 0;
+        setTitle("Escape RPG");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setPreferredSize(new Dimension(480, 480));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
         
         SwingUtilities.invokeLater(() -> {//Never seen thisbefore but is the recommended solution.
         db = new DBConnect();
         });
     }
-
+    
+    public void showPanel(String name) {
+        CardLayout layout = (CardLayout) cardPanel.getLayout();
+        layout.show(cardPanel, name);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1477,6 +1482,7 @@ public class gameWindow extends javax.swing.JFrame {
         showHighScore();
     }//GEN-LAST:event_highscoresButtonActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

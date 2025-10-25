@@ -7,35 +7,34 @@ import javax.swing.*;
 import java.awt.*;
 /**
  *
- * @author 1708k
+ * @author katelyncorreia
  */
-public class Window extends JPanel{
-    
-    
-    
-    
-    
-    //Placeholder until we palaver about how we want to do this. - Assuming your resolution isn't < 480
-    final int screenWidth = 480;
-    final int screenHeight = 480;
-    
-    // for the content on the tab that will switch out as we aren't doing multiple tables
-    private CardLayout cardLayout;
-    private JPanel contentPanel;
-    
-    
-    public Window(){
-        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.DARK_GRAY);
-        
-        
+    public class Window extends JFrame {
+
+    private final GameController controller;
+    private final gameWindow gui;
+
+    public Window() {
+        gui = new gameWindow();
+        controller = new GameController(gui);
+
+        setTitle("Escape RPG");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setPreferredSize(new Dimension(480, 480));
+        setLayout(new BorderLayout());
+
+        add(gui, BorderLayout.CENTER);
+
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+
+        // Start button wiring
+        controller.getState(); // initialize state if needed
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(Window::new);
+    }
 }
+
