@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pdcproject2;
 import javax.swing.*;
 import java.awt.*;
+
 /**
- *
+ * Escape RPG main game window
  * @author katelyncorreia
  */
 public class RPGGameWindow extends JFrame {
@@ -15,17 +12,30 @@ public class RPGGameWindow extends JFrame {
 
     // Core panels
     private JPanel initialPanel, startPanel, stage1Panel, treePanel,
-            pathPanel, entrancePanel, kitchenPanel, atticPanel,
+            pathPanel, entrancePanel, kitchenPanel, atticPanel, investigateTreasurePanel,
             gardenPanel, roseBushPanel, gardenerPanel,
             gardenShedPanel, bossFightPanel, winPanel, lostPanel;
 
     // Common labels and buttons
     private JLabel errorLabel, hasKeyLabel, noKeyLabel,
-            infoLabel4, infoLabel6, infoLabel9,
+            infoLabel4, infoLabel6, infoLabel9, treasureInfoLabel1, treasureInfoLabel2,
             chefDialogue, chefDialogue2, chefDialogue3,
             hasSwordLabel, warningLabel;
 
     private JTextField enterNameBox;
+    
+    // getter for the controller so that I can use the menu button and it resets the program
+    public GameController getController() {
+        return controller;
+    }
+    public JTextField getEnterNameBox() {
+        return enterNameBox;
+    }
+    
+    public void showPanel(String panelName) {
+    CardLayout layout = (CardLayout) cardPanel.getLayout();
+    layout.show(cardPanel, panelName);
+}
 
     public RPGGameWindow() {
         super("Escape RPG");
@@ -42,6 +52,7 @@ public class RPGGameWindow extends JFrame {
         buildEntrancePanel();
         buildKitchenPanel();
         buildAtticPanel();
+        buildInvestigateTreasure();
         buildGardenPanel();
         buildRoseBushPanel();
         buildGardenerPanel();
@@ -68,7 +79,7 @@ public class RPGGameWindow extends JFrame {
         JPanel buttons = new JPanel(new GridLayout(3, 1, 5, 5));
         JButton startButton = new JButton("Start");
         JButton highscoresButton = new JButton("Highscores");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(false);
 
         buttons.add(startButton);
         buttons.add(highscoresButton);
@@ -80,12 +91,13 @@ public class RPGGameWindow extends JFrame {
 
         startButton.addActionListener(e -> controller.goToPanel("startPanel"));
         highscoresButton.addActionListener(e -> controller.showHighScores());
-        quitButton.addActionListener(e -> System.exit(0));
     }
 
     private void buildStartPanel() {
         startPanel = new JPanel(new GridLayout(4, 1, 5, 5));
         JLabel title = new JLabel("Enter your name to begin", JLabel.CENTER);
+        
+        MenuButton menuButton = new MenuButton(this, false);
 
         enterNameBox = new JTextField(15);
         errorLabel = new JLabel("", JLabel.CENTER);
@@ -96,9 +108,10 @@ public class RPGGameWindow extends JFrame {
 
         JPanel buttons = new JPanel();
         JButton confirmButton = new JButton("Confirm");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(false);
         buttons.add(confirmButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
 
         startPanel.add(title);
         startPanel.add(input);
@@ -107,7 +120,6 @@ public class RPGGameWindow extends JFrame {
         cardPanel.add(startPanel, "startPanel");
 
         confirmButton.addActionListener(e -> controller.startGame(enterNameBox.getText()));
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildStage1Panel() {
@@ -117,11 +129,13 @@ public class RPGGameWindow extends JFrame {
         JPanel buttons = new JPanel();
         JButton treeButton = new JButton("Go to the Tree");
         JButton pathButton = new JButton("Follow the Path");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         buttons.add(treeButton);
         buttons.add(pathButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
 
         stage1Panel.add(new JLabel("Find the hidden treasure and survive!", JLabel.CENTER));
         stage1Panel.add(buttons);
@@ -130,7 +144,6 @@ public class RPGGameWindow extends JFrame {
 
         treeButton.addActionListener(e -> controller.goToPanel("treePanel"));
         pathButton.addActionListener(e -> controller.goToPanel("pathPanel"));
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildTreePanel() {
@@ -139,7 +152,8 @@ public class RPGGameWindow extends JFrame {
 
         JButton takeKeyButton = new JButton("Take the Key");
         JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         treePanel.add(new JLabel("You spot a key under the big tree!", JLabel.CENTER));
         treePanel.add(hasKeyLabel);
@@ -148,13 +162,13 @@ public class RPGGameWindow extends JFrame {
         buttons.add(takeKeyButton);
         buttons.add(goBackButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
 
         treePanel.add(buttons);
         cardPanel.add(treePanel, "treePanel");
 
         takeKeyButton.addActionListener(e -> controller.takeKey());
         goBackButton.addActionListener(e -> controller.goBackToStage1());
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildPathPanel() {
@@ -163,7 +177,7 @@ public class RPGGameWindow extends JFrame {
 
         JButton unlockButton = new JButton("Unlock the Door");
         JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         pathPanel.add(new JLabel("You find a mysterious house with a locked door.", JLabel.CENTER));
         pathPanel.add(noKeyLabel);
@@ -178,7 +192,6 @@ public class RPGGameWindow extends JFrame {
 
         unlockButton.addActionListener(e -> controller.unlockFrontDoor());
         goBackButton.addActionListener(e -> controller.goBackToStage1());
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildEntrancePanel() {
@@ -187,7 +200,7 @@ public class RPGGameWindow extends JFrame {
 
         JButton kitchenButton = new JButton("Go to Kitchen");
         JButton atticButton = new JButton("Climb to Attic");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         entrancePanel.add(infoLabel4);
         entrancePanel.add(new JLabel("You spot a door to a kitchen and a ladder up to an attic.", JLabel.CENTER));
@@ -202,7 +215,6 @@ public class RPGGameWindow extends JFrame {
 
         kitchenButton.addActionListener(e -> controller.goToKitchen());
         atticButton.addActionListener(e -> controller.goToAttic());
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildKitchenPanel() {
@@ -214,7 +226,7 @@ public class RPGGameWindow extends JFrame {
 
         JButton gardenButton = new JButton("Go to Garden");
         JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         kitchenPanel.add(infoLabel6);
         kitchenPanel.add(chefDialogue);
@@ -231,7 +243,6 @@ public class RPGGameWindow extends JFrame {
 
         gardenButton.addActionListener(e -> controller.goToGarden());
         goBackButton.addActionListener(e -> controller.goToPanel("entrancePanel"));
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildAtticPanel() {
@@ -241,7 +252,7 @@ public class RPGGameWindow extends JFrame {
 
         JButton investigateButton = new JButton("Investigate");
         JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         atticPanel.add(new JLabel("You enter the attic, filled with dust and cobwebs.", JLabel.CENTER));
         atticPanel.add(infoLabel9);
@@ -254,10 +265,26 @@ public class RPGGameWindow extends JFrame {
         atticPanel.add(buttons);
 
         cardPanel.add(atticPanel, "atticPanel");
-
+        
         investigateButton.addActionListener(e -> controller.investigateTreasure());
+        
         goBackButton.addActionListener(e -> controller.goToPanel("entrancePanel"));
-        quitButton.addActionListener(e -> controller.resetGame());
+        
+        if (controller.hasSword()) {
+        hasSwordLabel.setText("You already picked up the sword!");
+    }
+    }
+    
+    private void buildInvestigateTreasure() {
+        investigateTreasurePanel = new JPanel(new GridLayout(4, 1, 5, 5));
+        treasureInfoLabel1 = new JLabel("Congratulations! You found the treasure!", JLabel.CENTER);
+        treasureInfoLabel2 = new JLabel("But your journey is not over yet...", JLabel.CENTER);
+        
+        investigateTreasurePanel.add(treasureInfoLabel1);
+        investigateTreasurePanel.add(treasureInfoLabel2);
+        
+        cardPanel.add(investigateTreasurePanel, "investigateTreasurePanel");
+        
     }
 
     private void buildGardenPanel() {
@@ -266,7 +293,7 @@ public class RPGGameWindow extends JFrame {
 
         JButton roseBushButton = new JButton("Inspect Rose Bush");
         JButton gardenShedButton = new JButton("Go to Garden Shed");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         gardenPanel.add(new JLabel("You step into the garden; the air feels heavy...", JLabel.CENTER));
         gardenPanel.add(warningLabel);
@@ -280,82 +307,82 @@ public class RPGGameWindow extends JFrame {
         cardPanel.add(gardenPanel, "gardenPanel");
 
         roseBushButton.addActionListener(e -> controller.goToRoseBush());
-        gardenShedButton.addActionListener(e -> controller.goToGardenShed());
-        quitButton.addActionListener(e -> controller.resetGame());
+        gardenShedButton.addActionListener(e -> controller.goToPanel("gardenerPanel"));
     }
 
     private void buildRoseBushPanel() {
-        roseBushPanel = new JPanel(new GridLayout(3, 1, 5, 5));
+        roseBushPanel = new JPanel(new GridLayout(2, 1, 5, 5));
 
-        JButton gardenerButton = new JButton("Talk to Gardener");
         JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         roseBushPanel.add(new JLabel("You trip into the rose bush! Ouch!", JLabel.CENTER));
 
         JPanel buttons = new JPanel();
-        buttons.add(gardenerButton);
         buttons.add(goBackButton);
         buttons.add(quitButton);
         roseBushPanel.add(buttons);
 
         cardPanel.add(roseBushPanel, "roseBushPanel");
 
-        gardenerButton.addActionListener(e -> controller.goToGardener());
         goBackButton.addActionListener(e -> controller.goBackToGarden());
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildGardenerPanel() {
-        gardenerPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-        gardenerPanel.add(new JLabel("The gardener appears from behind a hedge!", JLabel.CENTER));
+        gardenerPanel = new JPanel(new GridLayout(6, 1, 5, 5));
+        
+        gardenerPanel.add(new JLabel("You try the door, when suddenly the Gardener appears from behind a hedge!", JLabel.CENTER));
+        gardenerPanel.add(new JLabel("'Oi! Whatcha doin there! Ye trynna get inna ma' shed?'", JLabel.CENTER));
+        gardenerPanel.add(new JLabel("'Sure, jus' hadta' ask'", JLabel.CENTER));
         gardenerPanel.add(new JLabel("He hands you the shed key.", JLabel.CENTER));
 
-        JButton unlockButton = new JButton("Unlock Shed");
-        JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        
+        JButton takeKeyButton = new JButton("Take Key");
+        QuitButton quitButton = new QuitButton(true);
 
         JPanel buttons = new JPanel();
-        buttons.add(unlockButton);
-        buttons.add(goBackButton);
+        buttons.add(takeKeyButton);
         buttons.add(quitButton);
         gardenerPanel.add(buttons);
 
         cardPanel.add(gardenerPanel, "gardenerPanel");
 
-        unlockButton.addActionListener(e -> controller.unlockShed());
-        goBackButton.addActionListener(e -> controller.goToGarden());
-        quitButton.addActionListener(e -> controller.resetGame());
+        takeKeyButton.addActionListener(e -> controller.unlockShed());
     }
 
     private void buildGardenShedPanel() {
-        gardenShedPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-        gardenShedPanel.add(new JLabel("You enter the shed... a dark presence looms.", JLabel.CENTER));
+        gardenShedPanel = new JPanel(new GridLayout(7, 1, 5, 5));
+        gardenShedPanel.add(new JLabel("The door creaks open, you swallow your fear and enter", JLabel.CENTER));
+        gardenShedPanel.add(new JLabel("You hear the door slam shut (this is getting old you think)", JLabel.CENTER));
+        gardenShedPanel.add(new JLabel("You notice Sir Doncillme tied up and unconcious and", JLabel.CENTER));
+        gardenShedPanel.add(new JLabel("hear a raspy laugh before the gardener steps in the dim light", JLabel.CENTER));
+        
+        
 
         JButton fightButton = new JButton("Confront Gardener");
-        JButton goBackButton = new JButton("Back");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         JPanel buttons = new JPanel();
         buttons.add(fightButton);
-        buttons.add(goBackButton);
         buttons.add(quitButton);
         gardenShedPanel.add(buttons);
 
         cardPanel.add(gardenShedPanel, "gardenShedPanel");
 
         fightButton.addActionListener(e -> controller.goToPanel("bossFightPanel"));
-        goBackButton.addActionListener(e -> controller.goBackToGarden());
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildBossFightPanel() {
-        bossFightPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-        bossFightPanel.add(new JLabel("The gardener steps forward, eyes glowing red!", JLabel.CENTER));
+        bossFightPanel = new JPanel(new GridLayout(7, 1, 5, 5));
+        bossFightPanel.add(new JLabel("The gardener steps forward, eyes full of hate!", JLabel.CENTER));
+        
+        bossFightPanel.add(new JLabel("'How easily you both fell for my trap, asked me to let you in even...'", JLabel.CENTER));
+        
+        bossFightPanel.add(new JLabel("'This beautiful shed is the last thing you will ever see!'", JLabel.CENTER));
 
         JButton attackButton = new JButton("Attack");
         JButton begButton = new JButton("Beg for Mercy");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(true);
 
         JPanel buttons = new JPanel();
         buttons.add(attackButton);
@@ -367,15 +394,18 @@ public class RPGGameWindow extends JFrame {
 
         attackButton.addActionListener(e -> controller.attackBoss());
         begButton.addActionListener(e -> controller.beg());
-        quitButton.addActionListener(e -> controller.resetGame());
     }
 
     private void buildWinPanel() {
-        winPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-        winPanel.add(new JLabel("You defeat the gardener and rescue the prisoner! 🎉", JLabel.CENTER));
+        winPanel = new JPanel(new GridLayout(5, 1, 5, 5));
+        winPanel.add(new JLabel("You defeat the gardener and rescue the prisoner!", JLabel.CENTER));
+        
+        winPanel.add(new JLabel("Congratulations you have completed the game!", JLabel.CENTER));
+        
+        winPanel.add(new JLabel("Your Final Score: ", JLabel.CENTER));
 
         JButton restartButton = new JButton("Play Again");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(false);
 
         JPanel buttons = new JPanel();
         buttons.add(restartButton);
@@ -385,15 +415,23 @@ public class RPGGameWindow extends JFrame {
         cardPanel.add(winPanel, "winPanel");
 
         restartButton.addActionListener(e -> controller.resetGame());
-        quitButton.addActionListener(e -> System.exit(0));
     }
 
     private void buildLostPanel() {
         lostPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-        lostPanel.add(new JLabel("Without a weapon, you are defeated...", JLabel.CENTER));
+        JLabel lostMessage = new JLabel("", JLabel.CENTER); 
+// note for kelton: you need to implement the database so that if they click beg for mercy and 
+        //dont have the sword it says the without a weapon one, 
+        //but if they do have the sword it says the no mercy one
+        if (!controller.hasSword()) {
+            lostMessage.setText("Without a weapon, you are defeated...");
+        } else {
+            lostMessage.setText("The Gardener shows you no mercy, you are defeated...");
+        }
+        lostPanel.add(lostMessage);
 
         JButton retryButton = new JButton("Retry");
-        JButton quitButton = new JButton("Quit");
+        QuitButton quitButton = new QuitButton(false);
 
         JPanel buttons = new JPanel();
         buttons.add(retryButton);
@@ -403,14 +441,11 @@ public class RPGGameWindow extends JFrame {
         cardPanel.add(lostPanel, "lostPanel");
 
         retryButton.addActionListener(e -> controller.resetGame());
-        quitButton.addActionListener(e -> System.exit(0));
     }
 
     // ---------- CONTROLLER INTERFACE ---------- //
 
-    public void showPanel(String name) {
-        ((CardLayout) cardPanel.getLayout()).show(cardPanel, name);
-    }
+   
 
     // Getters for GameController
     public JLabel getErrorLabel() { return errorLabel; }

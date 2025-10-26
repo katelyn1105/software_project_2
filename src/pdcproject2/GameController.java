@@ -42,11 +42,11 @@ public class GameController {
     public void endGame(boolean win) {
         tracker.stopCount();
         window.showPanel(win ? "winPanel" : "lostPanel");
-        // Optional: save to DB here
+        // save to DB here i assume idk
     }
 
     public void showHighScores() {
-        // Implement database/highscore logic here
+        // implement database/highscore logic here
         System.out.println("Showing high scores...");
     } 
     
@@ -66,6 +66,8 @@ public void takeKey() {
             window.getNoKeyLabel().setText("You need a key!");
         }
     }
+    
+    
 
     public void goToKitchen() {
         window.showPanel("kitchenPanel");
@@ -90,15 +92,27 @@ public void takeKey() {
     public void investigateTreasure() {
         if (!sword) {
             sword = true;
-            window.showPanel("treasurePanel");
+            window.showPanel("investigateTreasurePanel");
             // Auto-return to entrance after 5 seconds
             new Thread(() -> {
-                try { Thread.sleep(5000); } catch (InterruptedException ignored) {}
-                SwingUtilities.invokeLater(() -> window.showPanel("entrancePanel"));
+                try { 
+                    Thread.sleep(5000); 
+                } catch (InterruptedException ex) {
+                ex.printStackTrace();
+                }
+                
+                SwingUtilities.invokeLater(() -> {
+                    window.showPanel("entrancePanel");
+                });
+
             }).start();
         } else {
             window.getHasSwordLabel().setText("You already picked up the sword");
         }
+    }
+    
+    public boolean hasSword() {
+        return sword;
     }
 
     public void goToRoseBush() {
@@ -115,11 +129,6 @@ public void takeKey() {
 
     public void unlockShed() {
         window.showPanel("gardenShedPanel");
-        // Auto-show boss fight after 5 seconds
-        new Thread(() -> {
-            try { Thread.sleep(5000); } catch (InterruptedException ignored) {}
-            SwingUtilities.invokeLater(() -> window.showPanel("bossFightPanel"));
-        }).start();
     }
 
     public void attackBoss() {
@@ -164,5 +173,17 @@ public void takeKey() {
         beenToKitchen = false;
         tracker.startCount();
         window.showPanel("startPanel");
+        // Reset all UI labels
+        window.getHasKeyLabel().setText("");
+        window.getHasSwordLabel().setText("");
+        window.getNoKeyLabel().setText("");
+        window.getWarningLabel().setText("");
+
+        // Optionally reset any text fields
+        window.getEnterNameBox().setText("");
+    }
+    
+    public void showPanel(String panelName) {
+        window.showPanel(panelName);
     }
 }
