@@ -12,8 +12,9 @@ import java.awt.*;
 public class GameController {
     private final RPGGameWindow window;
     private final GameState state;
-    //private final DBConnect db;
+    private final DBConnect db = new DBConnect();
     private final ButtonTracker tracker;
+    private final DBHandler dbh;
     
     // Game flags for stages/items
     private boolean key = false;
@@ -24,8 +25,8 @@ public class GameController {
     public GameController(RPGGameWindow window) {
         this.window = window;
         this.state = new GameState();
-        //this.db = new DBConnect();
         this.tracker = new ButtonTracker();
+        this.dbh = new DBHandler(db);
     }
     
     // game
@@ -42,11 +43,13 @@ public class GameController {
     public void endGame(boolean win) {
         tracker.stopCount();
         window.showPanel(win ? "winPanel" : "lostPanel");
+        dbh.savePlayer(state);
         // save to DB here i assume idk
     }
 
     public void showHighScores() {
         // implement database/highscore logic here
+        dbh.highScores();
         System.out.println("Showing high scores...");
     } 
     
@@ -62,6 +65,7 @@ public class GameController {
     
 public void takeKey() {
         if (!key) {
+            state.setKey();
             key = true;
             window.showPanel("stage1Panel");
         } else {
@@ -101,6 +105,7 @@ public void takeKey() {
 
     public void investigateTreasure() {
         if (!sword) {
+            state.setSword();
             sword = true;
             window.showPanel("investigateTreasurePanel");
             // Auto-return to entrance after 5 seconds

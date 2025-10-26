@@ -32,7 +32,7 @@ public class GameState {
     
     // name getter
     public String getName() {
-        return name;
+        return this.name;
     }
     
     // items setter
@@ -57,6 +57,9 @@ public class GameState {
     
     // score
     public int getScore() {
+        if(inventory.contains("Key")&&inventory.contains("Sword")){
+            score = 100;
+        }
         return score;
     }
 
