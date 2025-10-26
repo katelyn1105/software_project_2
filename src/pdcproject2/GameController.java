@@ -50,6 +50,16 @@ public class GameController {
         System.out.println("Showing high scores...");
     } 
     
+    public void showLostPanel() {
+        JLabel lostLabel = window.getLostMessageLabel();
+        if (sword) {
+            lostLabel.setText("The Gardener shows you no mercy, you are defeated...");
+        } else {
+            lostLabel.setText("Without a weapon, you are defeated...");
+        }
+        window.showPanel("lostPanel");
+    }
+    
 public void takeKey() {
         if (!key) {
             key = true;
@@ -135,13 +145,14 @@ public void takeKey() {
         if (sword) {
             endGame(true);  // Player wins
         } else {
-            endGame(false); // Player loses
+            showLostPanel(); // Player loses
         }
     }
 
     public void beg() {
-        endGame(false); // Player loses
+        showLostPanel();
     }
+
 
     public void goBackToStage1() {
         window.showPanel("stage1Panel");
@@ -149,7 +160,7 @@ public void takeKey() {
 
     public void goBackToGarden() {
         window.showPanel("gardenPanel");
-        window.getWarningLabel().setText("Probably not a good idea...");
+        window.getWarningLabel().setText("Probably not a good idea to smell the roses again...");
     }
 
     // ===== GENERIC PANEL NAVIGATION =====
@@ -168,21 +179,35 @@ public void takeKey() {
 
     // ===== RESET GAME =====
     public void resetGame() {
+      // Reset controller-level flags
         key = false;
         sword = false;
         beenToKitchen = false;
-        tracker.startCount();
-        window.showPanel("startPanel");
-        // Reset all UI labels
+
+        // Reset game state completely
+        state.setName("");
+        state.setCurrentStage(0);
+
+        // Reset items and inventory
+        state.getInventory().clear();
+
+        // Reset UI labels
         window.getHasKeyLabel().setText("");
         window.getHasSwordLabel().setText("");
         window.getNoKeyLabel().setText("");
         window.getWarningLabel().setText("");
+        window.getErrorLabel().setText("");
 
-        // Optionally reset any text fields
+        // Reset player input
         window.getEnterNameBox().setText("");
+
+        // Restart the score/timer tracker
+        tracker.startCount();
+
+        // Return to the start of the game
+        window.showPanel("initialPanel");
     }
-    
+
     public void showPanel(String panelName) {
         window.showPanel(panelName);
     }

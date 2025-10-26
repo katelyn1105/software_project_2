@@ -20,7 +20,7 @@ public class RPGGameWindow extends JFrame {
     private JLabel errorLabel, hasKeyLabel, noKeyLabel,
             infoLabel4, infoLabel6, infoLabel9, treasureInfoLabel1, treasureInfoLabel2,
             chefDialogue, chefDialogue2, chefDialogue3,
-            hasSwordLabel, warningLabel;
+            hasSwordLabel, warningLabel, lostLabel;
 
     private JTextField enterNameBox;
     
@@ -178,6 +178,7 @@ public class RPGGameWindow extends JFrame {
         JButton unlockButton = new JButton("Unlock the Door");
         JButton goBackButton = new JButton("Back");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         pathPanel.add(new JLabel("You find a mysterious house with a locked door.", JLabel.CENTER));
         pathPanel.add(noKeyLabel);
@@ -186,6 +187,7 @@ public class RPGGameWindow extends JFrame {
         buttons.add(unlockButton);
         buttons.add(goBackButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
 
         pathPanel.add(buttons);
         cardPanel.add(pathPanel, "pathPanel");
@@ -201,6 +203,7 @@ public class RPGGameWindow extends JFrame {
         JButton kitchenButton = new JButton("Go to Kitchen");
         JButton atticButton = new JButton("Climb to Attic");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         entrancePanel.add(infoLabel4);
         entrancePanel.add(new JLabel("You spot a door to a kitchen and a ladder up to an attic.", JLabel.CENTER));
@@ -209,6 +212,7 @@ public class RPGGameWindow extends JFrame {
         buttons.add(kitchenButton);
         buttons.add(atticButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         entrancePanel.add(buttons);
 
         cardPanel.add(entrancePanel, "entrancePanel");
@@ -227,6 +231,7 @@ public class RPGGameWindow extends JFrame {
         JButton gardenButton = new JButton("Go to Garden");
         JButton goBackButton = new JButton("Back");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         kitchenPanel.add(infoLabel6);
         kitchenPanel.add(chefDialogue);
@@ -237,6 +242,8 @@ public class RPGGameWindow extends JFrame {
         buttons.add(gardenButton);
         buttons.add(goBackButton);
         buttons.add(quitButton);
+        
+        buttons.add(menuButton);
         kitchenPanel.add(buttons);
 
         cardPanel.add(kitchenPanel, "kitchenPanel");
@@ -253,6 +260,7 @@ public class RPGGameWindow extends JFrame {
         JButton investigateButton = new JButton("Investigate");
         JButton goBackButton = new JButton("Back");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         atticPanel.add(new JLabel("You enter the attic, filled with dust and cobwebs.", JLabel.CENTER));
         atticPanel.add(infoLabel9);
@@ -262,6 +270,8 @@ public class RPGGameWindow extends JFrame {
         buttons.add(investigateButton);
         buttons.add(goBackButton);
         buttons.add(quitButton);
+        
+        buttons.add(menuButton);
         atticPanel.add(buttons);
 
         cardPanel.add(atticPanel, "atticPanel");
@@ -294,6 +304,7 @@ public class RPGGameWindow extends JFrame {
         JButton roseBushButton = new JButton("Inspect Rose Bush");
         JButton gardenShedButton = new JButton("Go to Garden Shed");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         gardenPanel.add(new JLabel("You step into the garden; the air feels heavy...", JLabel.CENTER));
         gardenPanel.add(warningLabel);
@@ -302,6 +313,7 @@ public class RPGGameWindow extends JFrame {
         buttons.add(roseBushButton);
         buttons.add(gardenShedButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         gardenPanel.add(buttons);
 
         cardPanel.add(gardenPanel, "gardenPanel");
@@ -315,12 +327,14 @@ public class RPGGameWindow extends JFrame {
 
         JButton goBackButton = new JButton("Back");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         roseBushPanel.add(new JLabel("You trip into the rose bush! Ouch!", JLabel.CENTER));
 
         JPanel buttons = new JPanel();
         buttons.add(goBackButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         roseBushPanel.add(buttons);
 
         cardPanel.add(roseBushPanel, "roseBushPanel");
@@ -339,10 +353,12 @@ public class RPGGameWindow extends JFrame {
         
         JButton takeKeyButton = new JButton("Take Key");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         JPanel buttons = new JPanel();
         buttons.add(takeKeyButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         gardenerPanel.add(buttons);
 
         cardPanel.add(gardenerPanel, "gardenerPanel");
@@ -361,10 +377,12 @@ public class RPGGameWindow extends JFrame {
 
         JButton fightButton = new JButton("Confront Gardener");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         JPanel buttons = new JPanel();
         buttons.add(fightButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         gardenShedPanel.add(buttons);
 
         cardPanel.add(gardenShedPanel, "gardenShedPanel");
@@ -383,11 +401,13 @@ public class RPGGameWindow extends JFrame {
         JButton attackButton = new JButton("Attack");
         JButton begButton = new JButton("Beg for Mercy");
         QuitButton quitButton = new QuitButton(true);
+        MenuButton menuButton = new MenuButton(this, true);
 
         JPanel buttons = new JPanel();
         buttons.add(attackButton);
         buttons.add(begButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         bossFightPanel.add(buttons);
 
         cardPanel.add(bossFightPanel, "bossFightPanel");
@@ -406,10 +426,12 @@ public class RPGGameWindow extends JFrame {
 
         JButton restartButton = new JButton("Play Again");
         QuitButton quitButton = new QuitButton(false);
+        MenuButton menuButton = new MenuButton(this, false);
 
         JPanel buttons = new JPanel();
         buttons.add(restartButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         winPanel.add(buttons);
 
         cardPanel.add(winPanel, "winPanel");
@@ -419,23 +441,22 @@ public class RPGGameWindow extends JFrame {
 
     private void buildLostPanel() {
         lostPanel = new JPanel(new GridLayout(3, 1, 5, 5));
-        JLabel lostMessage = new JLabel("", JLabel.CENTER); 
+        lostLabel = new JLabel("", JLabel.CENTER); 
+        
+        
+        lostPanel.add(lostLabel);
 // note for kelton: you need to implement the database so that if they click beg for mercy and 
         //dont have the sword it says the without a weapon one, 
         //but if they do have the sword it says the no mercy one
-        if (!controller.hasSword()) {
-            lostMessage.setText("Without a weapon, you are defeated...");
-        } else {
-            lostMessage.setText("The Gardener shows you no mercy, you are defeated...");
-        }
-        lostPanel.add(lostMessage);
 
         JButton retryButton = new JButton("Retry");
         QuitButton quitButton = new QuitButton(false);
+        MenuButton menuButton = new MenuButton(this, false);
 
         JPanel buttons = new JPanel();
         buttons.add(retryButton);
         buttons.add(quitButton);
+        buttons.add(menuButton);
         lostPanel.add(buttons);
 
         cardPanel.add(lostPanel, "lostPanel");
@@ -459,8 +480,11 @@ public class RPGGameWindow extends JFrame {
     public JLabel getChefDialogue3() { return chefDialogue3; }
     public JLabel getHasSwordLabel() { return hasSwordLabel; }
     public JLabel getWarningLabel() { return warningLabel; }
+    public JLabel getLostMessageLabel() { return lostLabel; }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(RPGGameWindow::new);
     }
+
+    
 }
