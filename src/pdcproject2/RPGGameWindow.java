@@ -448,6 +448,7 @@ public class RPGGameWindow extends JFrame {
 // note for kelton: you need to implement the database so that if they click beg for mercy and 
         //dont have the sword it says the without a weapon one, 
         //but if they do have the sword it says the no mercy one
+        //I don't understand what you're asking, please elaborate.
 
         JButton retryButton = new JButton("Retry");
         QuitButton quitButton = new QuitButton(false);
