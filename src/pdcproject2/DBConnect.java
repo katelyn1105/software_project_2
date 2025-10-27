@@ -29,8 +29,9 @@ public final class DBConnect {
     
     public void establishConnect(){
         try{
+    
         conn = DriverManager.getConnection(DB_URL, "app", "app");
-            System.out.println("Connected to: " + DB_URL);
+            System.out.println("Connected to: " + DB_URL);          
                 }catch(SQLException e){
                     
                    System.out.println("Connection failed. " + e.getMessage());

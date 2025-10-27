@@ -15,6 +15,7 @@ public class GameController {
     private final DBConnect db = new DBConnect();
     private final ButtonTracker tracker;
     private final DBHandler dbh;
+    private final Timer timer = new Timer();
     
     // Game flags for stages/items
     private boolean key = false;
@@ -37,6 +38,7 @@ public class GameController {
         }
         state.setName(playerName);
         tracker.startCount();
+        timer.start();
         window.showPanel("stage1Panel");
     }
 
@@ -44,6 +46,7 @@ public class GameController {
         tracker.stopCount();
         window.showPanel(win ? "winPanel" : "lostPanel");
         dbh.savePlayer(state);
+        timer.stop();
         // save to DB here i assume idk
     }
 

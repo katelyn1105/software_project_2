@@ -21,8 +21,10 @@ public class DBHandler {
 
     private final static String TABLE_NAME = "Player_Data";
 
+    
     private final DBConnect dbc = new DBConnect();
     private Connection conn;
+    Timer timer = new Timer();
     //GameState gs = new GameState();
 
     public DBHandler(DBConnect dbc) {
@@ -39,7 +41,11 @@ public class DBHandler {
     }
 
     public void createTable() {//Creates Player_DATA table if none found (I'll clean later).
-        //Test
+        //Test       
+        if(conn == null){
+            System.out.println("Please connect to database.");
+        }
+        
         try {
             Statement statement = conn.createStatement();
             //Should I put INV in a new table?
@@ -47,7 +53,8 @@ public class DBHandler {
                 CREATE TABLE PLAYER_DATA (
                     playerName VARCHAR(50) PRIMARY KEY,
                     score INT,
-                    inventory VARCHAR(255)
+                    inventory VARCHAR(255),
+                    playTime BIGINT
                 )
             """);
             System.out.println("Table created: " + TABLE_NAME);
@@ -69,25 +76,32 @@ public class DBHandler {
         String playerName = gs.getName();
         int score = gs.getScore();
         Set<String> inventory = gs.getInventory();
+        int playTime = (int) timer.getTimeSecs();
 
         String inven = inventory.isEmpty() ? "No items" : String.join(", ", inventory);
 
-        String sqlNew = "UPDATE PLAYER_DATA SET score = ?, inventory = ? WHERE playerName = ?";
+        String sqlNew = "UPDATE PLAYER_DATA SET score = ?, inventory = ?, playTime = ? WHERE playerName = ?";
 
-        String sqlInsert = "INSERT INTO PLAYER_DATA (playerName, score, inventory) VALUES (?, ?, ?)";
+        String sqlInsert = "INSERT INTO PLAYER_DATA (playerName, score, inventory, playTime) VALUES (?, ?, ?, ?)";
 
+        System.out.println("Saving: name=" + playerName + ", score=" + score + ", inventory=" + inven + ", playTime=" + playTime);
+        
         try (PreparedStatement ps = conn.prepareStatement(sqlNew)) {
             ps.setInt(1, score);
 
             ps.setString(2, inven);
             ps.setString(3, playerName);
             int rows = ps.executeUpdate();//Need to code this in, lookat DBManager
+            
+            
+            
 
             if (rows == 0) { //First player
                 try (PreparedStatement insertPs = conn.prepareStatement(sqlInsert)) {
                     insertPs.setString(1, playerName);
                     insertPs.setInt(2, score);
                     insertPs.setString(3, inven);
+                    insertPs.setLong(4, playTime);
                     insertPs.executeUpdate();
                     System.out.println("Succesfully added player.");
                 }
@@ -105,7 +119,7 @@ public class DBHandler {
             System.out.println("No connection Found.");
             return;
         }
-        String[] columns = {"Player Name", "Score", "Inventory"};
+        String[] columns = {"Player Name", "Score", "Inventory", "Playtime (s)"};
         DefaultTableModel model = new DefaultTableModel(columns, 0);
 
         String sql = "SELECT * FROM PLAYER_DATA ORDER BY score DESC";
@@ -117,8 +131,9 @@ public class DBHandler {
                 String name = rs.getString("playerName");
                 int score = rs.getInt("score");
                 String inv = rs.getString("inventory");
+                int playTime = rs.getInt("playTime");
 
-                model.addRow(new Object[]{name, score, inv});
+                model.addRow(new Object[]{name, score, inv, playTime});
             }
 
             JTable table = new JTable(model);
