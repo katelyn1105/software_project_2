@@ -11,38 +11,39 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 import java.util.*;
+
 /**
  *
  * @author 1708k
  */
 public class TimerTest {
-    
+
     private Timer timer;
-    
+
     public TimerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Timer Test initiating.");
+       
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
         System.out.println("Terminating Timer Test.");
     }
-    
+
     @Before
     public void setUp() {
-        Timer timer = new Timer();
+        timer = new Timer();
     }
-    
+
     @After
     public void tearDown() {
-        if(timer != null){
-        timer = null;
+        if (timer != null) {
+            timer = null;
         }
     }
 
@@ -53,7 +54,7 @@ public class TimerTest {
     public void testStartAndIsRunning() throws InterruptedException {
         assertFalse("Timer should not be running initially", timer.isRunning());
         timer.start();
-        assertTrue("Timer should be running after start()", timer.isRunning());
+        assertTrue("Timer should be running after start", timer.isRunning());
 
         //Pause - this allows incrementation.
         Thread.sleep(50);
@@ -62,19 +63,18 @@ public class TimerTest {
         assertFalse("Timer still running error", timer.isRunning());
     }
 
-
     /**
      * Test of stop method, of class Timer.
      */
     @Test
     public void testStop() {
-    timer.start();
-    try{
-        Thread.sleep(50);
-    }catch(InterruptedException e){
-        System.out.println("Thread failed"+ e.getMessage());
-    }
-   
+        timer.start();
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            System.out.println("Thread failed" + e.getMessage());
+        }
+
         timer.stop();
         long elapsed = timer.getTimeMill();
         assertTrue("Time > 0 ", elapsed > 0);
@@ -89,12 +89,19 @@ public class TimerTest {
      */
     @Test
     public void testReset() {
-     timer.reset();
-     try{
-         thread.sleep(50);
-     }catch(InterruptedException e){
-         e.getMessage();
-     }
+        timer.reset();
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.getMessage();
+        }
+        assertTrue(timer.getTimeMill() < 10);
+
+        timer.reset();
+
+        assertEquals("Timer should be zero (0)", 0L, timer.getTimeMill());
+        assertFalse("Timer is not running ", timer.isRunning());
+
     }
 
     /**
@@ -102,13 +109,19 @@ public class TimerTest {
      */
     @Test
     public void testGetTimeMill() {
-        System.out.println("getTimeMill");
-        Timer instance = new Timer();
-        long expResult = 0L;
-        long result = instance.getTimeMill();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        timer.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("Error testMill" + e.getMessage());
+        }
+        timer.stop();
+
+        long ms = timer.getTimeMill();
+        long secs = timer.getTimeSecs();
+
+        assertTrue("Milliseconds should be >= 100", ms >= 100);
+        assertEquals("Seconds should be 1", 1, secs);
     }
 
     /**
@@ -116,13 +129,19 @@ public class TimerTest {
      */
     @Test
     public void testGetTimeSecs() {
-        System.out.println("getTimeSecs");
-        Timer instance = new Timer();
-        long expResult = 0L;
-        long result = instance.getTimeSecs();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        timer.start();
+        try {
+            Thread.sleep(1000);//Need greater than 1000
+        } catch (InterruptedException e) {
+            System.out.println("Error testSecs" + e.getMessage());
+        }
+        timer.stop();
+
+        long ms = timer.getTimeMill();
+        long secs = timer.getTimeSecs();
+
+        assertTrue("Seconds should be >= 100", secs >= 1);
+        assertEquals("Seconds should be 1", 1, secs);
     }
 
     /**
@@ -130,27 +149,24 @@ public class TimerTest {
      */
     @Test
     public void testGetTimeFormatted() {
-        System.out.println("getTimeFormatted");
-        Timer instance = new Timer();
-        String expResult = "";
-        String result = instance.getTimeFormatted();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+            timer.start();
+        try{
+        Thread.sleep(1000); 
+        }catch(InterruptedException e){
+            System.out.println("Error Time formatted" + e.getMessage());
+        }
+        timer.stop();
+
+        String tform = timer.getTimeFormatted();
+        
+        assertNotNull("Time should not be null",tform);
+        //assertTrue("Should be colon present", tform.contains(":"));
     }
 
     /**
      * Test of isRunning method, of class Timer.
      */
-    @Test
-    public void testIsRunning() {
-        System.out.println("isRunning");
-        Timer instance = new Timer();
-        boolean expResult = false;
-        boolean result = instance.isRunning();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+
+
 }
+
