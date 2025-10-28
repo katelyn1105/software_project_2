@@ -8,7 +8,6 @@ package pdcproject2;
  *
  * @author katelyncorreia
  */
-
 import org.junit.*;
 import java.sql.*;
 import java.util.Set;
@@ -45,7 +44,9 @@ public class TestDBHandler {
             @Override
             public void DBClose() {
                 try {
-                    if (conn != null && !conn.isClosed()) conn.close();
+                    if (conn != null && !conn.isClosed()) {
+                        conn.close();
+                    }
                     DriverManager.getConnection("jdbc:derby:memory:TestDB;shutdown=true");
                 } catch (SQLException e) {
                     // Derby throws exception on shutdown, ignore
@@ -100,7 +101,9 @@ public class TestDBHandler {
             ps.setString(1, "TestPlayer");
             ResultSet rs = ps.executeQuery();
             Set<String> items = new java.util.HashSet<>();
-            while (rs.next()) items.add(rs.getString("item_name"));
+            while (rs.next()) {
+                items.add(rs.getString("item_name"));
+            }
             assertTrue(items.contains("Key"));
             assertTrue(items.contains("Sword"));
         }
