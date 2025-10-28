@@ -15,7 +15,7 @@ public class GameController {
     private final DBConnect db = new DBConnect();
     private final ButtonTracker tracker;
     private final DBHandler dbh;
-    private final Timer timer = new Timer();
+    //private final Timer timer = new Timer();
     
     
     // Game flags for stages/items
@@ -39,23 +39,26 @@ public class GameController {
         }
         state.setName(playerName);
         tracker.startCount();
+        //Timer start
         state.startTimer();
         System.out.println("Timer started");
         window.showPanel("stage1Panel");
     }
 
     public void endGame(boolean win) {
+        //Stop Timer and save stats to databases.
         state.stopTimer();
         tracker.stopCount();
         window.showPanel(win ? "winPanel" : "lostPanel");
         
         dbh.savePlayer(state);
         
-        // save to DB here i assume idk
+        
     }
-
+       
+    //Read databases and combine to a scoreboard.
     public void showHighScores() {
-        // implement database/highscore logic here
+        
         dbh.showHighScores();
         System.out.println("Showing high scores...");
     } 
@@ -118,7 +121,7 @@ public void takeKey() {
             // Auto-return to entrance after 5 seconds
             new Thread(() -> {
                 try { 
-                    Thread.sleep(5000); 
+                    Thread.sleep(1000); 
                 } catch (InterruptedException ex) {
                 ex.printStackTrace();
                 }

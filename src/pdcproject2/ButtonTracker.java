@@ -8,39 +8,30 @@ import java.util.*;
  *
  * @author 1708k
  */
+//Tracks total button presses - use in score.
 public class ButtonTracker {
 
-    /**
-     * @return the counter
-     */
+
     public int getCounter() {
         return counter;
     }
 
-    /**
-     * @param counter the counter to set
-     */
+    //Override counter
     public void setCounter(int counter) {
         this.counter = counter;
     }
 
-    /**
-     * @return the countOn
-     */
+    
     public boolean isCountOn() {
         return countOn;
     }
 
-    /**
-     * @param countOn the countOn to set
-     */
+    //Enable counter.
     public void setCountOn(boolean countOn) {
         this.countOn = countOn;
     }
 
-    /**
-     * @return the score
-     */
+    //Give score.
     public int getScore() {
         return score;
     }
@@ -56,19 +47,19 @@ public class ButtonTracker {
     private boolean countOn = false;
     private int score = 0;
     
-    
+    //Start Count.
     public void startCount(){
         setCountOn(true);
         setCounter(0);
         setScore(0);
     }
-    
+    //Stop counting and return score
     public void stopCount(){
         setCountOn(false);
         setScore(100 - getCounter());   
         System.out.println("Final score: " + getScore());
     }
-    
+    //Increment score.
     public void addCount(){
         if(isCountOn()){
             setCounter(getCounter()+1);

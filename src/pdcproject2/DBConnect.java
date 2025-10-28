@@ -13,9 +13,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public final class DBConnect {
     
-    private final String DB_URL = "jdbc:derby:Project2DB;create=true";//This is the URL I used when you said it didn't work.
+    //Embedded Database URL
+    private final String DB_URL = "jdbc:derby:Project2DB;create=true";
     
-    
+    //Local Connection to Databases.
     //private final static String DB_URL = "jdbc:derby://localhost:1527/Project2DB;create=true";
     //private final static String TABLE_NAME = "Player_Data";
     Connection conn;
@@ -26,7 +27,7 @@ public final class DBConnect {
     //createTable();
         
 }
-    
+    //Establish a connection with the database - default connection enabled.
     public void establishConnect(){
         try{
     
@@ -39,11 +40,12 @@ public final class DBConnect {
                 }
     }
     
-    
+    //Return Connection Status.
     public Connection getConnect(){
         return this.conn;
     }
     
+    //Close Connection.
     public void DBClose(){
         try {
     DriverManager.getConnection("jdbc:derby:;shutdown=true");
