@@ -40,7 +40,10 @@ public class RPGStage3 {
         // add garden shed panel
         cardPanel.add(window.gardenShedPanel, "gardenShedPanel");
 
-        fightButton.addActionListener(e -> controller.goToPanel("bossFightPanel"));
+        fightButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToPanel("bossFightPanel");
+                });
 
         // boss fight panel
         window.bossFightPanel = new JPanel(new GridLayout(7, 1, 5, 5));
@@ -66,8 +69,14 @@ public class RPGStage3 {
 
         cardPanel.add(window.bossFightPanel, "bossFightPanel");
 
-        attackButton.addActionListener(e -> controller.attackBoss());
-        begButton.addActionListener(e -> controller.beg());
+        attackButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.attackBoss();
+                });
+        begButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.beg();
+                });
 
         // win panel
         window.winPanel = new JPanel(new GridLayout(5, 1, 5, 5));
@@ -89,7 +98,10 @@ public class RPGStage3 {
         window.winPanel.add(winButtons);
 
         cardPanel.add(window.winPanel, "winPanel");
-        restartButton.addActionListener(e -> controller.resetGame());
+        restartButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.resetGame();
+                });
 
         // lost panel
         window.lostPanel = new JPanel(new GridLayout(3, 1, 5, 5));
@@ -111,6 +123,9 @@ public class RPGStage3 {
 
         // add lost panel
         cardPanel.add(window.lostPanel, "lostPanel");
-        retryButton.addActionListener(e -> controller.resetGame());
+        retryButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.resetGame();
+                });
     }
 }

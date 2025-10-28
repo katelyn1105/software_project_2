@@ -46,8 +46,14 @@ public class RPGStage2 {
         // add panel
         cardPanel.add(window.gardenPanel, "gardenPanel");
         // redirect when buttons are pressed
-        roseBushButton.addActionListener(e -> controller.goToRoseBush());
-        gardenShedButton.addActionListener(e -> controller.goToPanel("gardenerPanel"));
+        roseBushButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToRoseBush();
+                });
+        gardenShedButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToPanel("gardenerPanel");
+                });
 
         // rose bush panel
         window.roseBushPanel = new JPanel(new GridLayout(2, 1, 5, 5));
@@ -66,7 +72,10 @@ public class RPGStage2 {
         window.roseBushPanel.add(roseButtons);
         cardPanel.add(window.roseBushPanel, "roseBushPanel");
         // redirect back to the garden panel
-        goBackButton.addActionListener(e -> controller.goBackToGarden());
+        goBackButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goBackToGarden();
+                });
 
         // gardener panel
         window.gardenerPanel = new JPanel(new GridLayout(6, 1, 5, 5));
@@ -91,7 +100,10 @@ public class RPGStage2 {
         // add panel
         cardPanel.add(window.gardenerPanel, "gardenerPanel");
         // unlock shed button redirects to garden shed panel
-        takeKeyButton.addActionListener(e -> controller.unlockShed());
+        takeKeyButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.unlockShed();
+                });
     }
 }
 

@@ -38,9 +38,15 @@ public class RPGStage1 {
         cardPanel.add(window.stage1Panel, "stage1Panel");
 
         // go to tree panel
-        treeButton.addActionListener(e -> controller.goToPanel("treePanel"));
+        treeButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToPanel("treePanel");
+                });
         // go to path panel
-        pathButton.addActionListener(e -> controller.goToPanel("pathPanel"));
+        pathButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToPanel("pathPanel");
+                });
 
         // tree panel
         window.treePanel = new JPanel(new GridLayout(4, 1, 5, 5)); // grid layout
@@ -70,8 +76,14 @@ public class RPGStage1 {
         cardPanel.add(window.treePanel, "treePanel");
         
         // redirect to
-        takeKeyButton.addActionListener(e -> controller.takeKey());
-        goBackButton.addActionListener(e -> controller.goBackToStage1());
+        takeKeyButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.takeKey();
+                });
+        goBackButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goBackToStage1();
+                });
 
         // path panel
         window.pathPanel = new JPanel(new GridLayout(4, 1, 5, 5));
@@ -98,8 +110,14 @@ public class RPGStage1 {
         window.pathPanel.add(pathButtons);
         // create panel
         cardPanel.add(window.pathPanel, "pathPanel");
-        unlockButton.addActionListener(e -> controller.unlockFrontDoor());
-        goBackButton2.addActionListener(e -> controller.goBackToStage1());
+        unlockButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.unlockFrontDoor();
+                });
+        goBackButton2.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goBackToStage1();
+                });
 
         // entrance panel
         window.entrancePanel = new JPanel(new GridLayout(4, 1, 5, 5));
@@ -125,8 +143,14 @@ public class RPGStage1 {
         // create entrance panel
         cardPanel.add(window.entrancePanel, "entrancePanel");
         
-        kitchenButton.addActionListener(e -> controller.goToKitchen());
-        atticButton.addActionListener(e -> controller.goToAttic());
+        kitchenButton.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToKitchen();
+                });
+        atticButton.addActionListener(e ->{
+            controller.getTracker().addCount();
+            controller.goToAttic();
+                });
 
         // kitchen panel
         window.kitchenPanel = new JPanel(new GridLayout(7, 1, 5, 5));
@@ -157,9 +181,15 @@ public class RPGStage1 {
         window.kitchenPanel.add(kitchenButtons);
         // add ktichen panel
         cardPanel.add(window.kitchenPanel, "kitchenPanel");
-        gardenButton.addActionListener(e -> controller.goToGarden());
+        gardenButton.addActionListener(e ->{
+            controller.getTracker().addCount();
+            controller.goToGarden();
+                });
         // take to the entrance panel
-        goBackButton3.addActionListener(e -> controller.goToPanel("entrancePanel"));
+        goBackButton3.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToPanel("entrancePanel");
+                });
 
         // attic panel
         window.atticPanel = new JPanel(new GridLayout(4, 1, 5, 5));
@@ -185,8 +215,14 @@ public class RPGStage1 {
         window.atticPanel.add(atticButtons);
         // add attic panel
         cardPanel.add(window.atticPanel, "atticPanel");
-        investigateButton.addActionListener(e -> controller.investigateTreasure());
-        goBackButton4.addActionListener(e -> controller.goToPanel("entrancePanel"));
+        investigateButton.addActionListener(e ->{
+            controller.getTracker().addCount();
+            controller.investigateTreasure();
+                });
+        goBackButton4.addActionListener(e -> {
+            controller.getTracker().addCount();
+            controller.goToPanel("entrancePanel");
+                });
         // if the user already has the sword then display
         if (controller.hasSword()) {
             window.hasSwordLabel.setText("You already picked up the sword!");

@@ -55,14 +55,16 @@ public class ButtonTracker {
     }
     //Stop counting and return score
     public void stopCount(){
+        //System.out.println("Current count: "+getCounter());
         setCountOn(false);
-        setScore(100 - getCounter());   
+        setScore(112 - getCounter());   
         System.out.println("Final score: " + getScore());
     }
     //Increment score.
     public void addCount(){
         if(isCountOn()){
             setCounter(getCounter()+1);
+            //System.out.println("Count incremented.");
         }
     }
     
