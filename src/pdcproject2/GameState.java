@@ -17,6 +17,7 @@ public class GameState {
     private boolean beenToKitchen;
     private final Set<String> inventory = new HashSet<>();
     private int currentStage;
+    private final Timer timer;
     
     public GameState() {
         name = "";
@@ -24,6 +25,7 @@ public class GameState {
         hasSword = false;
         score = 0;
         currentStage = 0; // 0 is the start stage
+        timer = new Timer();
     }
     // name setter
     public void setName(String name) {
@@ -90,4 +92,18 @@ public class GameState {
     }
     
     
+    
+    
+    //Timer Controls
+    
+    public void startTimer(){
+        timer.start();
+    }
+    
+    public void stopTimer(){
+        timer.stop();
+    }
+    public long getPlayTimeSecs(){
+        return timer.getTimeSecs();
+    }
 }

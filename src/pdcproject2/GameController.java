@@ -17,6 +17,7 @@ public class GameController {
     private final DBHandler dbh;
     private final Timer timer = new Timer();
     
+    
     // Game flags for stages/items
     private boolean key = false;
     private boolean sword = false;
@@ -38,21 +39,24 @@ public class GameController {
         }
         state.setName(playerName);
         tracker.startCount();
-        timer.start();
+        state.startTimer();
+        System.out.println("Timer started");
         window.showPanel("stage1Panel");
     }
 
     public void endGame(boolean win) {
+        state.stopTimer();
         tracker.stopCount();
         window.showPanel(win ? "winPanel" : "lostPanel");
+        
         dbh.savePlayer(state);
-        timer.stop();
+        
         // save to DB here i assume idk
     }
 
     public void showHighScores() {
         // implement database/highscore logic here
-        dbh.highScores();
+        dbh.showHighScores();
         System.out.println("Showing high scores...");
     } 
     

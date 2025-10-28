@@ -32,6 +32,7 @@ public class Timer {
     public void stop() {
         if (running) {
             endTime = System.currentTimeMillis();
+            System.out.println("Timer Stopped: " + endTime);
             running = false;
         }
     }
