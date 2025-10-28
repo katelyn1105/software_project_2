@@ -10,12 +10,13 @@ import java.util.Set;
  * @author katelyncorreia
  */
 public class GameState {
+    // declaring varibles
     private String name;
     private int score;
     private boolean hasKey;
     private boolean hasSword;
     private boolean beenToKitchen;
-    private final Set<String> inventory = new HashSet<>();
+    private final Set<String> inventory = new HashSet<>(); // hash set to store inventory
     private int currentStage;
     private final Timer timer;
     
