@@ -8,6 +8,7 @@ package pdcproject2;
  *
  * @author 1708k
  */
+//Enables a timer to track time taken.
 public class Timer {
     
     
@@ -24,6 +25,9 @@ public class Timer {
 
     //Timer start/reset.
     public void start() {
+        if(running = true){
+            reset();
+        }
         startTime = System.currentTimeMillis();
         running = true;
     }
@@ -37,7 +41,7 @@ public class Timer {
         }
     }
 
-    /** Resets the timer completely. */
+    //Resets Timer.
     public void reset() {
         startTime = 0;
         endTime = 0;
@@ -58,7 +62,7 @@ public class Timer {
         return getTimeMill() / 1000;
     }
 
-    
+    //Formats time into min:sec
     public String getTimeFormatted() {
         //This is to convert to secs
         long totalSeconds = getTimeSecs();
@@ -73,7 +77,7 @@ public class Timer {
         }
     }
 
-    
+    //Check if running.
     public boolean isRunning() {
         return running;
     }

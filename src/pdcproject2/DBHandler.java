@@ -283,7 +283,7 @@ public class DBHandler {
     }
     return playerId;
 }
-    
+    //Method to display Highscores into one table
   public void showHighScores() {
     if (conn == null) {
         System.out.println("No connection Found.");
@@ -293,12 +293,14 @@ public class DBHandler {
     String[] columns = {"Player Name", "Score", "Play Time (s)", "Inventory"};
     DefaultTableModel model = new DefaultTableModel(columns, 0);
 
+    //SQL string.
     String sqlPlayers = "SELECT player_id, player_name, score, play_time FROM PLAYER ORDER BY score DESC";
 
     try (Statement st = conn.createStatement();
          ResultSet rs = st.executeQuery(sqlPlayers)) {
 
         while (rs.next()) {
+            //variables to be placed in table.
             int id = rs.getInt("player_id");
             String name = rs.getString("player_name");
             int score = rs.getInt("score");
@@ -309,6 +311,7 @@ public class DBHandler {
             try (PreparedStatement invPs = conn.prepareStatement("SELECT item_name FROM INVENTORY WHERE player_id = ?")) {
                 invPs.setInt(1, id);
                 ResultSet invRs = invPs.executeQuery();
+                //Inventory, whille has next.
                 while (invRs.next()) {
                     if (inventoryBuilder.length() > 0) inventoryBuilder.append(", ");
                     inventoryBuilder.append(invRs.getString("item_name"));
@@ -324,7 +327,7 @@ public class DBHandler {
         JOptionPane.showMessageDialog(null, scroll, "High Scores", JOptionPane.INFORMATION_MESSAGE);
 
     } catch (SQLException e) {
-        System.out.println("❌ Error showing high scores: " + e.getMessage());
+        System.out.println("Error showing high scores: " + e.getMessage());
     }
 }
 }
