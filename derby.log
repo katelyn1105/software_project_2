@@ -1,19 +1,45 @@
 ----------------------------------------------------------------
-Tue Oct 28 15:27:36 NZDT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-28a4-702f-000006d132e8 
-on database directory memory:C:\Users\1708k\OneDrive\Documents\NetBeansProjects\software_project_2\TestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
-Loaded from file:/C:/Users/1708k/OneDrive/Documents/NetBeansProjects/software_project_2/lib/derby.jar
+Tue Oct 28 15:44:33 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-28b3-f434-00000f4843e8 
+on database directory memory:/Users/katelyncorreia/Downloads/project_2/PDCProject2/TestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2c854dc5 
+Loaded from file:/Users/katelyncorreia/Downloads/project_2/PDCProject2/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.7+8-LTS-245
-user.dir=C:\Users\1708k\OneDrive\Documents\NetBeansProjects\software_project_2
-os.name=Windows 11
-os.arch=amd64
-os.version=10.0
+user.dir=/Users/katelyncorreia/Downloads/project_2/PDCProject2
+os.name=Mac OS X
+os.arch=aarch64
+os.version=15.0.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Oct 28 15:27:37 NZDT 2025: Shutting down Derby engine
+Tue Oct 28 15:44:33 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 0ddd00a9-019a-28b3-f434-00000f4843e8 
+on database directory /Users/katelyncorreia/Downloads/project_2/PDCProject2/Project2DB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2c854dc5 
+Loaded from file:/Users/katelyncorreia/Downloads/project_2/PDCProject2/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.7+8-LTS-245
+user.dir=/Users/katelyncorreia/Downloads/project_2/PDCProject2
+os.name=Mac OS X
+os.arch=aarch64
+os.version=15.0.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Oct 28 15:27:37 NZDT 2025:
-Shutting down instance a816c00e-019a-28a4-702f-000006d132e8 on database directory memory:C:\Users\1708k\OneDrive\Documents\NetBeansProjects\software_project_2\TestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
+Tue Oct 28 15:44:33 NZDT 2025:
+Shutting down instance a816c00e-019a-28b3-f434-00000f4843e8 on database directory memory:/Users/katelyncorreia/Downloads/project_2/PDCProject2/TestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2c854dc5 
 ----------------------------------------------------------------
+Tue Oct 28 15:44:33 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance df1940da-019a-28b3-f434-00000f4843e8 
+on database directory memory:/Users/katelyncorreia/Downloads/project_2/PDCProject2/TestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2c854dc5 
+Loaded from file:/Users/katelyncorreia/Downloads/project_2/PDCProject2/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.7+8-LTS-245
+user.dir=/Users/katelyncorreia/Downloads/project_2/PDCProject2
+os.name=Mac OS X
+os.arch=aarch64
+os.version=15.0.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Oct 28 15:44:33 NZDT 2025:
+Shutting down instance df1940da-019a-28b3-f434-00000f4843e8 on database directory memory:/Users/katelyncorreia/Downloads/project_2/PDCProject2/TestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2c854dc5 
