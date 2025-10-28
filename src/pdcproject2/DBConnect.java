@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 1708k
  */
-public final class DBConnect {
+public class DBConnect {
     
     //Embedded Database URL
     private final String DB_URL = "jdbc:derby:Project2DB;create=true";
