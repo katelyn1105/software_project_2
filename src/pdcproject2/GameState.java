@@ -62,6 +62,10 @@ public class GameState {
     public int getScore() {
         return score;
     }
+    
+    public void setScore(int s){
+        score = s;
+    }
 
     public void addScore(int points) {
         this.score += points;

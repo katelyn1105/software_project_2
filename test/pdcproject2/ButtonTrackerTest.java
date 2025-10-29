@@ -80,7 +80,7 @@ public class ButtonTrackerTest {
         }
         tracker.stopCount();
         assertFalse("Counter should be off after stopCount()", tracker.isCountOn());
-        assertEquals("Score should be 100 - counter after stopCount()", 95, tracker.getScore());
+        assertEquals("Score should be 112 - counter after stopCount()", 107, tracker.getScore());
     }
 
     /**

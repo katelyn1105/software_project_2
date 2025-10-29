@@ -49,9 +49,12 @@ public class GameController {
         //Stop Timer and save stats to databases.
         state.stopTimer();
         tracker.stopCount();
+        state.setScore(tracker.getScore());
         window.showPanel(win ? "winPanel" : "lostPanel");
         
         dbh.savePlayer(state);
+        
+        resetGame();
         
         
     }
