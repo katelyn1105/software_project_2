@@ -25,6 +25,7 @@ public class RPGGameWindow extends JFrame {
             hasSwordLabel, warningLabel, lostLabel;
 
     JTextField enterNameBox; // for the user to enter their name, the only part of the game where the user has to enter something
+
     
     // getter for controller
     public GameController getController() { 

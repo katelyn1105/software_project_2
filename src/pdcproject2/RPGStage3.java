@@ -83,7 +83,7 @@ public class RPGStage3 {
         // text displayed if you win, if u have the sword and choose to attack
         window.winPanel.add(new JLabel("You defeat the gardener and rescue the prisoner!", JLabel.CENTER));
         window.winPanel.add(new JLabel("Congratulations you have completed the game!", JLabel.CENTER));
-        window.winPanel.add(new JLabel("Your Final Score: ", JLabel.CENTER));
+        window.winPanel.add(new JLabel("Your Final Score", JLabel.CENTER));
 
         // option buttons
         JButton restartButton = new JButton("Play Again");
