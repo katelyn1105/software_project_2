@@ -12,12 +12,6 @@ import java.awt.*;
  * @author katelyncorreia
  */
 
-
-/**
- * 
- * @author katelyncorreia
- */
-
 // stage 2 of the game, from the rose bush to the gardener panel
 public class RPGStage2 {
     public RPGStage2(RPGGameWindow window, GameController controller, JPanel cardPanel) {

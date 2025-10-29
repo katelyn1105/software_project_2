@@ -11,6 +11,7 @@ import java.awt.*;
 public class RPGGameWindow extends JFrame {
     private final GameController controller; // using game controller class
     private final JPanel cardPanel; // using card panel
+    
 
     // rpg game panels
     JPanel initialPanel, startPanel, stage1Panel, treePanel,
@@ -22,7 +23,7 @@ public class RPGGameWindow extends JFrame {
     JLabel errorLabel, hasKeyLabel, noKeyLabel,
             infoLabel4, infoLabel6, infoLabel9, treasureInfoLabel1, treasureInfoLabel2,
             chefDialogue, chefDialogue2, chefDialogue3,
-            hasSwordLabel, warningLabel, lostLabel;
+            hasSwordLabel, warningLabel, lostLabel, finalScoreLabel;
 
     JTextField enterNameBox; // for the user to enter their name, the only part of the game where the user has to enter something
 

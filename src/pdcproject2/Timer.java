@@ -11,8 +11,7 @@ package pdcproject2;
 //Enables a timer to track time taken.
 public class Timer {
     
-    
-       private long startTime;
+    private long startTime;
     private long endTime;
     private boolean running;
 

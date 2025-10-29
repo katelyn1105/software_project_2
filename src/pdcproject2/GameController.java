@@ -18,7 +18,7 @@ public class GameController {
     //private final Timer timer = new Timer();
     
     
-    // Game flags for stages/items
+    // game flags for stages and items
     private boolean key = false;
     private boolean sword = false;
     private boolean beenToKitchen = false;
@@ -50,11 +50,15 @@ public class GameController {
         state.stopTimer();
         tracker.stopCount();
         state.setScore(tracker.getScore());
+        if (win && window.finalScoreLabel != null) {
+            window.finalScoreLabel.setText("Your Final Score: " + state.getScore());
+        }
+        
         window.showPanel(win ? "winPanel" : "lostPanel");
         
         dbh.savePlayer(state);
         
-        resetGame();
+        //resetGame();
         
         
     }
@@ -121,10 +125,10 @@ public void takeKey() {
             state.setSword();
             sword = true;
             window.showPanel("investigateTreasurePanel");
-            // Auto-return to entrance after 5 seconds
+            // Auto-return to entrance after 3 seconds
             new Thread(() -> {
                 try { 
-                    Thread.sleep(1000); 
+                    Thread.sleep(3000); 
                 } catch (InterruptedException ex) {
                 ex.printStackTrace();
                 }
@@ -181,12 +185,12 @@ public void takeKey() {
         window.getWarningLabel().setText("Probably not a good idea to smell the roses again...");
     }
 
-    // ===== GENERIC PANEL NAVIGATION =====
+    // panel navigation
     public void goToPanel(String panelName) {
         window.showPanel(panelName);
     }
 
-    // ===== ACCESSORS =====
+   
     public GameState getState() {
         return state;
     }
@@ -195,34 +199,34 @@ public void takeKey() {
         return tracker;
     }
 
-    // ===== RESET GAME =====
+    // reset game
     public void resetGame() {
-      // Reset controller-level flags
+      // reset controller flags
         key = false;
         sword = false;
         beenToKitchen = false;
 
-        // Reset game state completely
+        // reset game state completely
         state.setName("");
         state.setCurrentStage(0);
 
-        // Reset items and inventory
+        // reset inventory
         state.getInventory().clear();
 
-        // Reset UI labels
+        // reset labels
         window.getHasKeyLabel().setText("");
         window.getHasSwordLabel().setText("");
         window.getNoKeyLabel().setText("");
         window.getWarningLabel().setText("");
         window.getErrorLabel().setText("");
 
-        // Reset player input
+        // reset player input
         window.getEnterNameBox().setText("");
 
-        // Restart the score/timer tracker
+        // restart the score tracker
         tracker.startCount();
 
-        // Return to the start of the game
+        // return to the start of the game
         window.showPanel("initialPanel");
     }
 
